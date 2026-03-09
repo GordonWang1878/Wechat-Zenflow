@@ -73,24 +73,26 @@
         <text class="empty-label">暂无交易记录</text>
       </view>
 
-      <view class="bento-card card-full card-cream tx-item-card"
-            wx:for="{{transactions}}" wx:key="_id" wx:else>
-        <view class="tx-item-top">
-          <view class="tx-tag-bento {{item.type === 'recharge' ? 'tag-recharge' : 'tag-consume'}}">
-            <text>{{item.type === 'recharge' ? '充值' : '消费'}}</text>
+      <block wx:else>
+        <view class="bento-card card-full card-cream tx-item-card"
+              wx:for="{{transactions}}" wx:key="_id">
+          <view class="tx-item-top">
+            <view class="tx-tag-bento {{item.type === 'recharge' ? 'tag-recharge' : 'tag-consume'}}">
+              <text>{{item.type === 'recharge' ? '充值' : '消费'}}</text>
+            </view>
+            <text class="tx-item-amount {{item.type === 'recharge' ? 'amount-pos' : 'amount-neg'}}">
+              {{item.type === 'recharge' ? '+' : '−'}}{{item.amount}}
+            </text>
           </view>
-          <text class="tx-item-amount {{item.type === 'recharge' ? 'amount-pos' : 'amount-neg'}}">
-            {{item.type === 'recharge' ? '+' : '−'}}{{item.amount}}
-          </text>
-        </view>
-        <view class="tx-item-bottom">
-          <view class="tx-item-meta">
-            <text class="tx-item-time">{{item.timeStr}}</text>
-            <text class="tx-item-notes" wx:if="{{item.notes}}">{{item.notes}}</text>
+          <view class="tx-item-bottom">
+            <view class="tx-item-meta">
+              <text class="tx-item-time">{{item.timeStr}}</text>
+              <text class="tx-item-notes" wx:if="{{item.notes}}">{{item.notes}}</text>
+            </view>
+            <text class="tx-item-after">余额 ¥{{item.balanceAfter}}</text>
           </view>
-          <text class="tx-item-after">余额 ¥{{item.balanceAfter}}</text>
         </view>
-      </view>
+      </block>
 
     </block>
 
