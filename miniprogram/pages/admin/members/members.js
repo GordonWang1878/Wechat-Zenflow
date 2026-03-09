@@ -5,6 +5,7 @@ Page({
   data: {
     members: [],
     filteredMembers: [],
+    totalBalance: 0,
     loading: true,
     keyword: '',
   },
@@ -26,7 +27,8 @@ Page({
       const res = await db.collection('members')
         .orderBy('memberNo', 'asc')
         .get()
-      this.setData({ members: res.data, loading: false })
+      const totalBalance = res.data.reduce((sum, m) => sum + (m.balance || 0), 0)
+      this.setData({ members: res.data, totalBalance, loading: false })
       this._applyFilter()
     } catch (err) {
       console.error('加载会员失败:', err)

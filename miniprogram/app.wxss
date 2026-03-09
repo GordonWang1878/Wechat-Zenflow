@@ -1,146 +1,171 @@
-/* app.wxss —— Advanced Minimalism 全局样式 */
+/* app.wxss —— Bento Grid 2.0 全局样式 */
 
 /* ===== 基础 ===== */
 page {
-  background: #F5F5F2;
+  background: #EDEBE3;
   font-family: -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif;
-  color: #111111;
+  color: #1B2B22;
   font-size: 28rpx;
   -webkit-font-smoothing: antialiased;
 }
 
-/* ===== 通用布局 ===== */
-.container {
-  padding: 0 40rpx;
-  min-height: 100vh;
+/* ===== Bento Grid 容器 ===== */
+.bento-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  padding: 16rpx;
   box-sizing: border-box;
 }
 
-/* ===== 分割线 ===== */
-.divider {
-  height: 1rpx;
-  background: #E0E0DC;
-  margin: 32rpx 0;
+/* ===== Bento Card 基础 ===== */
+.bento-card {
+  border-radius: 28rpx;
+  padding: 36rpx;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
 }
 
-/* ===== 按钮 ===== */
-.btn-primary {
-  width: 100%;
-  height: 96rpx;
-  background: #111111;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 4rpx;
-  font-size: 30rpx;
-  font-weight: 600;
-  letter-spacing: 2rpx;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.btn-primary::after { border: none; }
-.btn-primary.disabled { opacity: 0.35; }
+/* 宽度变体 */
+.card-full { width: 100%; }
+.card-half { width: calc(50% - 8rpx); }
 
-.btn-secondary {
-  width: 100%;
-  height: 96rpx;
-  background: transparent;
-  color: #111111;
-  border: 1rpx solid #111111;
-  border-radius: 4rpx;
-  font-size: 30rpx;
-  font-weight: 500;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.btn-secondary::after { border: none; }
+/* 颜色变体 */
+.card-cream  { background: #FAF8F3; }
+.card-forest { background: #1B2B22; }
+.card-sage   { background: #D4E6CC; }
+.card-terra  { background: #B8694A; }
+.card-green  { background: #2E6640; }
 
-.btn-danger {
-  width: 100%;
-  height: 96rpx;
-  background: transparent;
-  color: #C0392B;
-  border: 1rpx solid #C0392B;
-  border-radius: 4rpx;
-  font-size: 30rpx;
-  font-weight: 500;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.btn-danger::after { border: none; }
-
-/* ===== 表单 ===== */
-.form-group { margin-bottom: 36rpx; }
-
-.form-label {
+/* ===== Label（全大写 + 字间距）===== */
+.card-label {
   display: block;
-  font-size: 22rpx;
-  color: #888888;
-  letter-spacing: 2rpx;
+  font-size: 18rpx;
+  font-weight: 700;
+  letter-spacing: 3rpx;
   text-transform: uppercase;
-  margin-bottom: 16rpx;
+  color: #8A9A88;
+  margin-bottom: 14rpx;
 }
-.form-label .required { color: #C0392B; margin-left: 4rpx; }
 
-.form-input {
-  width: 100%;
-  height: 80rpx;
-  background: #FFFFFF;
-  border: none;
-  border-bottom: 1rpx solid #E0E0DC;
-  padding: 0;
+/* ===== 英雄数字 ===== */
+.hero-number {
+  display: block;
+  font-size: 80rpx;
+  font-weight: 800;
+  letter-spacing: -3rpx;
+  line-height: 1.05;
+}
+
+/* ===== 导航 card 元素 ===== */
+.admin-nav-title {
+  display: block;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #FAF8F3;
+  margin-top: 8rpx;
+}
+.admin-nav-arrow {
+  position: absolute;
+  right: 32rpx;
+  bottom: 28rpx;
+  font-size: 64rpx;
+  color: #FAF8F3;
+  opacity: 0.3;
+  line-height: 1;
+}
+
+/* ===== Action card（充值/消费）===== */
+.action-card { min-height: 180rpx; }
+.action-card-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #FAF8F3;
+  margin-top: 8rpx;
+}
+.action-card-arrow {
+  position: absolute;
+  right: 32rpx;
+  bottom: 28rpx;
+  font-size: 64rpx;
+  color: #FAF8F3;
+  opacity: 0.3;
+  line-height: 1;
+}
+
+/* ===== Submit card ===== */
+.submit-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100rpx;
+}
+.submit-card.disabled { opacity: 0.4; }
+.submit-card-text {
   font-size: 30rpx;
-  color: #111111;
-  box-sizing: border-box;
+  font-weight: 700;
+  letter-spacing: 4rpx;
+  color: #FAF8F3;
 }
 
-.form-textarea {
+/* ===== 行式 card（edit row）===== */
+.edit-row-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 88rpx;
+  padding-top: 24rpx;
+  padding-bottom: 24rpx;
+}
+.edit-row-card .card-label { margin-bottom: 0; }
+.edit-row-arrow { font-size: 44rpx; color: #B0AEA6; line-height: 1; }
+
+/* ===== 表单组（bento 内）===== */
+.form-group-bento {
+  margin-bottom: 36rpx;
+  padding-bottom: 32rpx;
+  border-bottom: 1rpx solid #E8E6DE;
+}
+.form-input-bento {
   width: 100%;
-  min-height: 160rpx;
-  background: #FFFFFF;
+  height: 72rpx;
+  background: transparent;
   border: none;
-  border-bottom: 1rpx solid #E0E0DC;
-  padding: 20rpx 0;
-  font-size: 28rpx;
-  color: #111111;
+  font-size: 32rpx;
+  color: #1B2B22;
   box-sizing: border-box;
-  line-height: 1.7;
 }
-
-/* ===== 空状态 ===== */
-.empty-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 120rpx 0;
-  color: #CCCCCC;
+.form-textarea-bento {
+  width: 100%;
+  min-height: 120rpx;
+  background: transparent;
+  border: none;
+  font-size: 28rpx;
+  color: #1B2B22;
+  line-height: 1.8;
+  box-sizing: border-box;
 }
-.empty-state .empty-icon { font-size: 80rpx; margin-bottom: 20rpx; }
-.empty-state .empty-text { font-size: 26rpx; letter-spacing: 1rpx; }
-
-/* ===== Loading ===== */
-.loading-wrap {
+.picker-bento {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 100rpx 0;
-  color: #AAAAAA;
+  height: 72rpx;
+}
+.picker-val-bento { font-size: 32rpx; color: #1B2B22; }
+.picker-arrow-bento { font-size: 36rpx; color: #B0AEA6; }
+.required-dot { color: #B8694A; }
+
+/* ===== Loading / Empty ===== */
+.loading-dots {
+  display: block;
+  text-align: center;
   font-size: 40rpx;
+  color: #8A9A88;
   letter-spacing: 8rpx;
+  padding: 40rpx 0;
 }
-
-/* ===== 标签 ===== */
-.tag {
-  display: inline-block;
-  padding: 4rpx 14rpx;
-  font-size: 20rpx;
-  letter-spacing: 1rpx;
-  border: 1rpx solid currentColor;
-  border-radius: 2rpx;
-}
+.empty-bento { text-align: center; padding: 40rpx 0; }
+.empty-label { font-size: 26rpx; color: #B0AEA6; letter-spacing: 1rpx; }

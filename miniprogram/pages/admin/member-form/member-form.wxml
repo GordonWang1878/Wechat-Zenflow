@@ -1,68 +1,85 @@
 <!-- pages/admin/member-form/member-form.wxml -->
-<view class="form-page">
-  <view class="form-card">
+<view class="form-bento-page">
+  <view class="bento-grid">
 
-    <!-- 姓名 -->
-    <view class="form-group">
-      <text class="form-label">姓名<text class="required"> *</text></text>
-      <input
-        class="form-input"
-        placeholder="请输入姓名"
-        value="{{form.name}}"
-        bindinput="onInput"
-        data-field="name"
-        maxlength="20"
-      />
+    <!-- 英雄：full，forest -->
+    <view class="bento-card card-full card-forest form-hero-card">
+      <text class="card-label" style="color:#8A9A88">{{isEdit ? 'EDIT MEMBER' : 'NEW MEMBER'}}</text>
+      <text class="form-hero-title">{{isEdit ? '编辑会员' : '新增会员'}}</text>
     </view>
 
-    <!-- 手机号 -->
-    <view class="form-group">
-      <text class="form-label">手机号</text>
-      <input
-        class="form-input"
-        placeholder="请输入手机号（可选）"
-        value="{{form.phone}}"
-        bindinput="onInput"
-        data-field="phone"
-        type="number"
-        maxlength="11"
-      />
+    <!-- 基本信息：full，cream -->
+    <view class="bento-card card-full card-cream">
+      <text class="card-label">基本信息</text>
+
+      <!-- 姓名 -->
+      <view class="form-row-bento">
+        <text class="form-key-bento">NAME <text class="req-dot">*</text></text>
+        <input
+          class="form-val-input"
+          placeholder="请输入姓名"
+          placeholder-style="color:#C8C6BE"
+          value="{{form.name}}"
+          bindinput="onInput"
+          data-field="name"
+          maxlength="20"
+        />
+      </view>
+
+      <!-- 手机号 -->
+      <view class="form-row-bento">
+        <text class="form-key-bento">TEL</text>
+        <input
+          class="form-val-input"
+          placeholder="手机号（可选）"
+          placeholder-style="color:#C8C6BE"
+          value="{{form.phone}}"
+          bindinput="onInput"
+          data-field="phone"
+          type="number"
+          maxlength="11"
+        />
+      </view>
+
+      <!-- 性别 -->
+      <view class="form-row-bento">
+        <text class="form-key-bento">SEX</text>
+        <picker
+          range="{{genderOptions}}"
+          value="{{genderIndex}}"
+          bindchange="onGenderChange"
+          style="flex:1"
+        >
+          <view class="form-picker-bento">
+            <text class="form-picker-val">{{genderOptions[genderIndex]}}</text>
+            <text class="form-picker-arrow">›</text>
+          </view>
+        </picker>
+      </view>
+
+      <!-- 初始余额（仅新增时显示） -->
+      <view class="form-row-bento" wx:if="{{!isEdit}}">
+        <text class="form-key-bento">¥</text>
+        <input
+          class="form-val-input"
+          placeholder="初始余额（默认 0）"
+          placeholder-style="color:#C8C6BE"
+          value="{{form.balance}}"
+          bindinput="onInput"
+          data-field="balance"
+          type="digit"
+        />
+      </view>
+
     </view>
 
-    <!-- 性别 -->
-    <view class="form-group">
-      <text class="form-label">性别</text>
-      <picker
-        range="{{genderOptions}}"
-        value="{{genderIndex}}"
-        bindchange="onGenderChange"
-      >
-        <view class="picker-display">
-          <text>{{genderOptions[genderIndex]}}</text>
-          <text class="picker-arrow">▼</text>
-        </view>
-      </picker>
-    </view>
-
-    <!-- 初始余额（仅新增时显示） -->
-    <view class="form-group" wx:if="{{!isEdit}}">
-      <text class="form-label">初始余额（元）</text>
-      <input
-        class="form-input"
-        placeholder="默认为 0"
-        value="{{form.balance}}"
-        bindinput="onInput"
-        data-field="balance"
-        type="digit"
-      />
-    </view>
-
-    <!-- 备注 -->
-    <view class="form-group">
-      <text class="form-label">备注</text>
+    <!-- 备注：full，sage -->
+    <view class="bento-card card-full card-sage">
+      <text class="card-label" style="color:#2E6640">Note</text>
       <textarea
-        class="form-textarea"
-        placeholder="备注信息（可选）"
+        class="form-notes-bento"
+        placeholder="备注（可选，最多 200 字）"
+        placeholder-style="color:#8A9A88"
         value="{{form.notes}}"
         bindinput="onInput"
         data-field="notes"
@@ -71,17 +88,15 @@
       />
     </view>
 
-  </view>
-
-  <!-- 提交按钮 -->
-  <view class="submit-area">
-    <button
-      class="btn-primary {{submitting ? 'disabled' : ''}}"
+    <!-- 提交：full，forest -->
+    <view
+      class="bento-card card-full submit-card card-forest {{submitting ? 'disabled' : ''}}"
       bindtap="handleSubmit"
-      disabled="{{submitting}}"
     >
-      {{submitting ? '提交中...' : (isEdit ? '保存修改' : '创建会员')}}
-    </button>
-  </view>
+      <text class="submit-card-text">
+        {{submitting ? '提交中...' : (isEdit ? '保存修改' : '创建会员')}}
+      </text>
+    </view>
 
+  </view>
 </view>

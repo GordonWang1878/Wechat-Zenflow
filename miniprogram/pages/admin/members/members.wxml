@@ -1,74 +1,84 @@
 <!-- pages/admin/members/members.wxml -->
 <view class="members-page">
+  <view class="bento-grid">
 
-  <!-- 搜索栏 + 新增按钮 -->
-  <view class="toolbar">
-    <view class="search-box">
-      <text class="search-icon">搜</text>
-      <input
-        class="search-input"
-        placeholder="姓名 / 编号 / 手机号"
-        value="{{keyword}}"
-        bindinput="onSearchInput"
-      />
-    </view>
-    <view class="add-btn" bindtap="goToAdd">
-      <text>+ 新增</text>
-    </view>
-  </view>
-
-  <!-- 加载中 -->
-  <view wx:if="{{loading}}" class="loading-wrap">
-    <text>加载中...</text>
-  </view>
-
-  <!-- 无会员空状态 -->
-  <view wx:elif="{{members.length === 0}}" class="empty-state">
-    <text class="empty-icon">👤</text>
-    <text class="empty-text">暂无会员，点击右上角新增</text>
-  </view>
-
-  <!-- 搜索无结果 -->
-  <view wx:elif="{{filteredMembers.length === 0}}" class="empty-state">
-    <text class="empty-icon">🔍</text>
-    <text class="empty-text">未找到「{{keyword}}」相关会员</text>
-  </view>
-
-  <!-- 会员列表 -->
-  <view wx:else class="member-list">
-    <view
-      class="member-card"
-      wx:for="{{filteredMembers}}"
-      wx:key="_id"
-    >
-      <!-- 左侧点击跳转详情 -->
-      <view class="member-main" bindtap="goToDetail" data-id="{{item._id}}">
-        <view class="member-avatar">
-          <text>{{item.name ? item.name[0] : '?'}}</text>
-        </view>
-        <view class="member-info">
-          <view class="member-name-row">
-            <text class="member-name">{{item.name}}</text>
-            <text class="member-no">{{item.memberNo}}</text>
-          </view>
-          <text class="member-phone" wx:if="{{item.phone}}">{{item.phone}}</text>
-        </view>
-        <view class="member-balance">
-          <text class="balance-amount">¥{{item.balance}}</text>
-          <text class="balance-label">余额</text>
-        </view>
+    <!-- Stats + 搜索：full，forest -->
+    <view class="bento-card card-full card-forest stats-card">
+      <text class="card-label" style="color:#8A9A88">Members</text>
+      <text class="hero-number" style="color:#FAF8F3">{{members.length}}</text>
+      <text class="stats-sub">位注册会员</text>
+      <view class="search-bento">
+        <input
+          class="search-input-bento"
+          placeholder="搜索姓名 / 编号 / 手机"
+          placeholder-style="color:rgba(250,248,243,0.3)"
+          value="{{keyword}}"
+          bindinput="onSearchInput"
+        />
       </view>
+    </view>
 
-      <!-- 删除按钮 -->
+    <!-- 总余额：half，sage -->
+    <view class="bento-card card-half card-sage">
+      <text class="card-label" style="color:#2E6640">Total Bal.</text>
+      <text class="hero-number" style="font-size:48rpx;color:#1B2B22">¥{{totalBalance}}</text>
+    </view>
+
+    <!-- 新增按钮：half，terra -->
+    <view class="bento-card card-half card-terra admin-nav-card" bindtap="goToAdd">
+      <text class="card-label" style="color:#FAF8F3;opacity:0.55">New</text>
+      <text class="admin-nav-title">新增会员</text>
+      <text class="admin-nav-arrow">›</text>
+    </view>
+
+    <!-- loading -->
+    <view class="bento-card card-full card-cream" wx:if="{{loading}}">
+      <text class="loading-dots">···</text>
+    </view>
+
+    <!-- 无会员 -->
+    <view class="bento-card card-full card-cream empty-bento"
+          wx:elif="{{members.length === 0}}">
+      <text class="empty-label">暂无会员，点击新增</text>
+    </view>
+
+    <!-- 搜索无结果 -->
+    <view class="bento-card card-full card-cream empty-bento"
+          wx:elif="{{filteredMembers.length === 0}}">
+      <text class="empty-label">未找到「{{keyword}}」相关会员</text>
+    </view>
+
+    <!-- 会员卡片列表 -->
+    <block wx:else>
       <view
-        class="delete-btn"
-        catchtap="deleteMember"
-        data-id="{{item._id}}"
-        data-name="{{item.name}}"
+        class="bento-card card-full card-cream member-item-card"
+        wx:for="{{filteredMembers}}"
+        wx:key="_id"
       >
-        <text>删除</text>
+        <view class="member-item-main" bindtap="goToDetail" data-id="{{item._id}}">
+          <view class="avatar-square">
+            <text>{{item.name ? item.name[0] : '?'}}</text>
+          </view>
+          <view class="member-item-info">
+            <view class="member-item-top">
+              <text class="member-item-name">{{item.name}}</text>
+              <text class="member-item-no">{{item.memberNo}}</text>
+            </view>
+            <text class="member-item-phone" wx:if="{{item.phone}}">{{item.phone}}</text>
+          </view>
+          <view class="member-item-bal">
+            <text class="card-label" style="margin-bottom:6rpx">Balance</text>
+            <text class="member-item-bal-num">¥{{item.balance}}</text>
+          </view>
+        </view>
+        <text
+          class="member-delete-link"
+          catchtap="deleteMember"
+          data-id="{{item._id}}"
+          data-name="{{item.name}}"
+        >删除</text>
       </view>
-    </view>
-  </view>
+    </block>
 
+  </view>
 </view>

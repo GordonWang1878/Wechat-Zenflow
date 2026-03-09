@@ -1,29 +1,42 @@
 <!-- pages/login/login.wxml -->
 <view class="login-page">
+  <view class="bento-grid">
 
-  <!-- 品牌区 -->
-  <view class="brand-area">
-    <view class="brand-mark">
-      <text class="brand-char">禅</text>
+    <!-- 品牌 hero：full，forest -->
+    <view class="bento-card card-full card-forest brand-hero-card">
+      <view class="brand-mark-bento">
+        <text class="brand-char-bento">禅</text>
+      </view>
+      <text class="brand-name-bento">禅流中医推拿</text>
+      <text class="brand-tagline-bento">专业推拿 · 调理身心</text>
+      <view class="deco-dots">
+        <view class="dot dot-sage"></view>
+        <view class="dot dot-cream"></view>
+      </view>
     </view>
-    <text class="brand-name">禅流中医推拿</text>
-    <text class="brand-tagline">专业推拿 · 调理身心</text>
+
+    <!-- 说明 card：half，cream -->
+    <view class="bento-card card-half card-cream login-desc-card">
+      <text class="card-label">Login</text>
+      <text class="login-desc-text">使用微信账号安全登录系统</text>
+    </view>
+
+    <!-- 登录按钮 card：half，sage -->
+    <view class="bento-card card-half card-sage login-action-card">
+      <text class="card-label" style="color:#2E6640">微信登录</text>
+      <button
+        class="btn-login-bento {{loading ? 'loading' : ''}}"
+        bindtap="handleLogin"
+        disabled="{{loading}}"
+      >
+        {{loading ? '···' : '一键进入'}}
+      </button>
+    </view>
+
+    <!-- 声明 card：full，terra -->
+    <view class="bento-card card-full card-terra notice-card">
+      <text class="notice-text">MEMBERS ONLY · 仅向授权用户开放</text>
+    </view>
+
   </view>
-
-  <!-- 登录区 -->
-  <view class="login-section">
-    <text class="login-heading">登录</text>
-    <text class="login-sub">使用微信账号继续</text>
-
-    <button
-      class="btn-login {{loading ? 'loading' : ''}}"
-      bindtap="handleLogin"
-      disabled="{{loading}}"
-    >
-      {{loading ? '登录中...' : '微信一键登录'}}
-    </button>
-
-    <text class="login-note">仅向授权用户开放</text>
-  </view>
-
 </view>

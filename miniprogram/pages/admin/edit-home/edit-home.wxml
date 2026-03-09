@@ -1,136 +1,152 @@
 <!-- pages/admin/edit-home/edit-home.wxml -->
-<view class="edit-page">
+<view class="edit-bento-page">
+  <view class="bento-grid">
 
-  <view wx:if="{{loading}}" class="loading-wrap"><text>加载中...</text></view>
-
-  <block wx:else>
-
-    <!-- 基本信息 -->
-    <view class="section-card">
-      <text class="section-label">基本信息</text>
-
-      <view class="form-group">
-        <text class="form-label">主页标题 <text class="required">*</text></text>
-        <input
-          class="form-input"
-          placeholder="例：禅流中医推拿"
-          value="{{form.title}}"
-          bindinput="onInput"
-          data-field="title"
-          maxlength="30"
-        />
-      </view>
-
-      <view class="form-group">
-        <text class="form-label">副标题</text>
-        <input
-          class="form-input"
-          placeholder="例：专业推拿 · 调理身心"
-          value="{{form.subtitle}}"
-          bindinput="onInput"
-          data-field="subtitle"
-          maxlength="40"
-        />
-      </view>
-
-      <view class="form-group">
-        <text class="form-label">工作室介绍</text>
-        <textarea
-          class="form-textarea"
-          placeholder="介绍你的工作室..."
-          value="{{form.description}}"
-          bindinput="onInput"
-          data-field="description"
-          maxlength="500"
-          auto-height
-        />
-      </view>
+    <view class="bento-card card-full card-cream" wx:if="{{loading}}">
+      <text class="loading-dots">···</text>
     </view>
 
-    <!-- 服务项目 -->
-    <view class="section-card">
-      <text class="section-label">服务项目</text>
+    <block wx:else>
 
-      <!-- 已有服务列表 -->
-      <view class="service-list" wx:if="{{form.services && form.services.length > 0}}">
-        <view
-          class="service-item"
-          wx:for="{{form.services}}"
-          wx:key="index"
-        >
-          <text class="svc-name">{{item.name}}</text>
-          <text class="svc-price">¥{{item.price}}</text>
-          <view class="svc-del" bindtap="removeService" data-index="{{index}}">
-            <text>删除</text>
+      <!-- 英雄：full，forest -->
+      <view class="bento-card card-full card-forest form-hero-card">
+        <text class="card-label" style="color:#8A9A88">ADMIN</text>
+        <text class="form-hero-title">编辑主页</text>
+      </view>
+
+      <!-- 基本信息：full，cream -->
+      <view class="bento-card card-full card-cream">
+        <text class="card-label">基本信息</text>
+
+        <view class="form-row-bento">
+          <text class="form-key-bento">标题 <text class="req-dot">*</text></text>
+          <input
+            class="form-val-input"
+            placeholder="例：禅流中医推拿"
+            placeholder-style="color:#C8C6BE"
+            value="{{form.title}}"
+            bindinput="onInput"
+            data-field="title"
+            maxlength="30"
+          />
+        </view>
+
+        <view class="form-row-bento">
+          <text class="form-key-bento">副标题</text>
+          <input
+            class="form-val-input"
+            placeholder="例：专业推拿 · 调理身心"
+            placeholder-style="color:#C8C6BE"
+            value="{{form.subtitle}}"
+            bindinput="onInput"
+            data-field="subtitle"
+            maxlength="40"
+          />
+        </view>
+
+        <view class="form-row-bento form-row-textarea">
+          <text class="form-key-bento">介绍</text>
+          <textarea
+            class="form-val-textarea"
+            placeholder="介绍你的工作室..."
+            placeholder-style="color:#C8C6BE"
+            value="{{form.description}}"
+            bindinput="onInput"
+            data-field="description"
+            maxlength="500"
+            auto-height
+          />
+        </view>
+      </view>
+
+      <!-- 服务项目：full，sage -->
+      <view class="bento-card card-full card-sage">
+        <text class="card-label" style="color:#2E6640">Services</text>
+
+        <!-- 已有服务列表 -->
+        <view wx:if="{{form.services && form.services.length > 0}}">
+          <view
+            class="svc-item-bento"
+            wx:for="{{form.services}}"
+            wx:key="index"
+          >
+            <text class="svc-name-bento">{{item.name}}</text>
+            <text class="svc-price-bento">¥{{item.price}}</text>
+            <view class="svc-del-bento" bindtap="removeService" data-index="{{index}}">
+              <text>删除</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 新增服务行 -->
+        <view class="add-svc-row">
+          <input
+            class="svc-name-input"
+            placeholder="服务名称"
+            placeholder-style="color:#8A9A88"
+            value="{{newServiceName}}"
+            bindinput="onNewServiceInput"
+            data-field="newServiceName"
+          />
+          <input
+            class="svc-price-input"
+            placeholder="价格"
+            placeholder-style="color:#8A9A88"
+            type="digit"
+            value="{{newServicePrice}}"
+            bindinput="onNewServiceInput"
+            data-field="newServicePrice"
+          />
+          <view class="svc-add-btn" bindtap="addService">
+            <text>+ 添加</text>
           </view>
         </view>
       </view>
 
-      <!-- 新增服务 -->
-      <view class="add-service-row">
-        <input
-          class="svc-input"
-          placeholder="服务名称"
-          value="{{newServiceName}}"
-          bindinput="onNewServiceInput"
-          data-field="newServiceName"
-        />
-        <input
-          class="svc-price-input"
-          placeholder="价格"
-          type="digit"
-          value="{{newServicePrice}}"
-          bindinput="onNewServiceInput"
-          data-field="newServicePrice"
-        />
-        <view class="svc-add-btn" bindtap="addService">
-          <text>添加</text>
+      <!-- 联系方式：full，cream -->
+      <view class="bento-card card-full card-cream">
+        <text class="card-label">联系方式</text>
+
+        <view class="form-row-bento">
+          <text class="form-key-bento">TEL</text>
+          <input
+            class="form-val-input"
+            placeholder="联系电话"
+            placeholder-style="color:#C8C6BE"
+            value="{{form.contact}}"
+            bindinput="onInput"
+            data-field="contact"
+            type="number"
+            maxlength="20"
+          />
+        </view>
+
+        <view class="form-row-bento form-row-textarea">
+          <text class="form-key-bento">地址</text>
+          <textarea
+            class="form-val-textarea"
+            placeholder="工作室详细地址"
+            placeholder-style="color:#C8C6BE"
+            value="{{form.address}}"
+            bindinput="onInput"
+            data-field="address"
+            maxlength="100"
+            auto-height
+          />
         </view>
       </view>
-    </view>
 
-    <!-- 联系方式 -->
-    <view class="section-card">
-      <text class="section-label">联系方式</text>
-
-      <view class="form-group">
-        <text class="form-label">联系电话</text>
-        <input
-          class="form-input"
-          placeholder="例：138-0000-0000"
-          value="{{form.contact}}"
-          bindinput="onInput"
-          data-field="contact"
-          type="number"
-          maxlength="20"
-        />
+      <!-- 保存：full，forest -->
+      <view
+        class="bento-card card-full submit-card card-forest {{submitting ? 'disabled' : ''}}"
+        bindtap="handleSubmit"
+      >
+        <text class="submit-card-text">
+          {{submitting ? '保存中...' : '保存主页'}}
+        </text>
       </view>
 
-      <view class="form-group">
-        <text class="form-label">地址</text>
-        <textarea
-          class="form-textarea"
-          placeholder="工作室详细地址"
-          value="{{form.address}}"
-          bindinput="onInput"
-          data-field="address"
-          maxlength="100"
-          auto-height
-        />
-      </view>
-    </view>
+    </block>
 
-  </block>
-
-  <!-- 保存按钮 -->
-  <view class="submit-area">
-    <button
-      class="save-btn {{submitting ? 'disabled' : ''}}"
-      bindtap="handleSubmit"
-      disabled="{{submitting}}"
-    >
-      {{submitting ? '保存中...' : '保存主页'}}
-    </button>
   </view>
-
 </view>

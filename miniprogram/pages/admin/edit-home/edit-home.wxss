@@ -1,166 +1,99 @@
 /* pages/admin/edit-home/edit-home.wxss */
-.edit-page {
-  background: #F5F5F2;
-  min-height: 100vh;
-  padding-bottom: 160rpx;
-}
+.edit-bento-page { background: #EDEBE3; min-height: 100vh; }
 
-.loading-wrap {
+.form-hero-card { min-height: 180rpx; display: flex; flex-direction: column; justify-content: flex-end; }
+.form-hero-title { font-size: 52rpx; font-weight: 800; color: #FAF8F3; letter-spacing: -1rpx; margin-top: 8rpx; }
+
+/* 表单行 */
+.form-row-bento {
   display: flex;
-  justify-content: center;
-  padding: 100rpx 0;
-  color: #CCCCCC;
-  font-size: 40rpx;
-  letter-spacing: 8rpx;
+  align-items: center;
+  padding: 22rpx 0;
+  border-bottom: 1rpx solid #EDEAE2;
+  gap: 20rpx;
 }
+.form-row-bento:last-child { border-bottom: none; }
+.form-row-textarea { align-items: flex-start; padding-top: 24rpx; }
 
-/* 分组卡片 */
-.section-card {
-  background: #FFFFFF;
-  padding: 40rpx;
-  margin-top: 24rpx;
-  border-top: 1rpx solid #E0E0DC;
-  border-bottom: 1rpx solid #E0E0DC;
-}
-
-.section-label {
-  display: block;
-  font-size: 20rpx;
-  font-weight: 600;
-  color: #AAAAAA;
-  letter-spacing: 4rpx;
-  text-transform: uppercase;
-  margin-bottom: 32rpx;
-}
-
-/* 表单元素 */
-.form-group { margin-bottom: 40rpx; }
-
-.form-label {
-  display: block;
-  font-size: 20rpx;
-  color: #AAAAAA;
+.form-key-bento {
+  font-size: 18rpx;
+  font-weight: 700;
   letter-spacing: 2rpx;
-  margin-bottom: 14rpx;
+  color: #B0AEA6;
+  flex-shrink: 0;
+  width: 64rpx;
+  padding-top: 2rpx;
 }
-.required { color: #C0392B; }
+.req-dot { color: #B8694A; }
 
-.form-input {
-  width: 100%;
-  height: 76rpx;
-  background: transparent;
-  border: none;
-  border-bottom: 1rpx solid #E0E0DC;
-  padding: 0;
-  font-size: 30rpx;
-  color: #111111;
-  box-sizing: border-box;
-}
-
-.form-textarea {
-  width: 100%;
-  min-height: 160rpx;
-  background: transparent;
-  border: none;
-  border-bottom: 1rpx solid #E0E0DC;
-  padding: 12rpx 0;
+.form-val-input {
+  flex: 1;
   font-size: 28rpx;
-  color: #111111;
-  box-sizing: border-box;
+  color: #2C4A38;
+  height: 56rpx;
+  background: transparent;
+}
+
+.form-val-textarea {
+  flex: 1;
+  min-height: 80rpx;
+  font-size: 28rpx;
+  color: #2C4A38;
+  background: transparent;
   line-height: 1.8;
+  box-sizing: border-box;
 }
 
 /* 服务列表 */
-.service-list { margin-bottom: 24rpx; }
-.service-item {
+.svc-item-bento {
   display: flex;
   align-items: center;
-  padding: 20rpx 0;
-  border-bottom: 1rpx solid #F0F0EC;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid rgba(46,102,64,0.15);
   gap: 16rpx;
 }
-.svc-name { flex: 1; font-size: 28rpx; color: #333333; }
-.svc-price {
-  font-size: 28rpx;
-  color: #2E6640;
-  font-weight: 600;
-  width: 120rpx;
-  text-align: right;
-}
-.svc-del {
-  font-size: 22rpx;
-  color: #C0392B;
-  padding: 6rpx 0;
-  letter-spacing: 1rpx;
-}
+.svc-name-bento { flex: 1; font-size: 28rpx; color: #2C4A38; }
+.svc-price-bento { font-size: 28rpx; font-weight: 700; color: #2E6640; width: 100rpx; text-align: right; }
+.svc-del-bento { font-size: 22rpx; color: #B8694A; padding: 4rpx 0; }
 
 /* 新增服务行 */
-.add-service-row {
+.add-svc-row {
   display: flex;
   align-items: center;
   gap: 16rpx;
   padding-top: 20rpx;
-  border-top: 1rpx solid #F0F0EC;
+  margin-top: 4rpx;
 }
-.svc-input {
+.svc-name-input {
   flex: 1;
-  height: 72rpx;
-  background: transparent;
-  border: none;
-  border-bottom: 1rpx solid #E0E0DC;
-  padding: 0;
+  height: 64rpx;
   font-size: 26rpx;
-  color: #111111;
+  color: #2C4A38;
+  background: rgba(46,102,64,0.08);
+  border-radius: 12rpx;
+  padding: 0 16rpx;
+  box-sizing: border-box;
 }
 .svc-price-input {
-  width: 130rpx;
-  height: 72rpx;
-  background: transparent;
-  border: none;
-  border-bottom: 1rpx solid #E0E0DC;
-  padding: 0;
+  width: 120rpx;
+  height: 64rpx;
   font-size: 26rpx;
-  color: #111111;
+  color: #2C4A38;
+  background: rgba(46,102,64,0.08);
+  border-radius: 12rpx;
+  padding: 0 16rpx;
+  box-sizing: border-box;
   text-align: right;
 }
 .svc-add-btn {
-  background: #111111;
-  color: #FFFFFF;
-  height: 72rpx;
-  padding: 0 28rpx;
-  border-radius: 4rpx;
+  background: #2E6640;
+  color: #FAF8F3;
+  height: 64rpx;
+  padding: 0 24rpx;
+  border-radius: 12rpx;
   display: flex;
   align-items: center;
   font-size: 24rpx;
-  font-weight: 600;
-  letter-spacing: 1rpx;
+  font-weight: 700;
   white-space: nowrap;
 }
-
-/* 提交 */
-.submit-area {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 24rpx 40rpx;
-  background: #FFFFFF;
-  border-top: 1rpx solid #E0E0DC;
-  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
-}
-.save-btn {
-  width: 100%;
-  height: 96rpx;
-  background: #111111;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 4rpx;
-  font-size: 30rpx;
-  font-weight: 600;
-  letter-spacing: 2rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.save-btn::after { border: none; }
-.save-btn.disabled { opacity: 0.35; }

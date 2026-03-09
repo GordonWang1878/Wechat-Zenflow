@@ -1,85 +1,98 @@
 <!-- pages/admin/member-detail/member-detail.wxml -->
 <view class="detail-page">
+  <view class="bento-grid">
 
-  <view wx:if="{{loading}}" class="loading-wrap"><text>···</text></view>
+    <view class="bento-card card-full card-cream" wx:if="{{loading}}">
+      <text class="loading-dots">···</text>
+    </view>
 
-  <block wx:else>
+    <block wx:else>
 
-    <!-- 会员头部信息 -->
-    <view class="member-hero">
-      <view class="hero-top">
-        <view class="member-avatar">
-          <text>{{member.name ? member.name[0] : '?'}}</text>
+      <!-- 余额英雄：full，green -->
+      <view class="bento-card card-full card-green balance-hero-card">
+        <text class="card-label" style="color:#FAF8F3;opacity:0.5">Balance</text>
+        <text class="balance-hero-num">¥ {{member.balance}}</text>
+        <view class="balance-hero-member">
+          <text class="balance-hero-name">{{member.name}}</text>
+          <text class="balance-hero-meta">{{member.memberNo}} · {{member.gender || '未知'}}</text>
         </view>
-        <view class="member-meta">
-          <text class="member-name">{{member.name}}</text>
-          <text class="member-no">{{member.memberNo}} · {{member.gender || '未知'}}</text>
+      </view>
+
+      <!-- 充值：half，forest -->
+      <view class="bento-card card-half card-forest action-card"
+            bindtap="goToTransaction" data-type="recharge">
+        <text class="card-label" style="color:#8A9A88">Recharge</text>
+        <text class="action-card-title">充值</text>
+        <text class="action-card-arrow">›</text>
+      </view>
+
+      <!-- 消费：half，terra -->
+      <view class="bento-card card-half card-terra action-card"
+            bindtap="goToTransaction" data-type="consume">
+        <text class="card-label" style="color:#FAF8F3;opacity:0.55">Consume</text>
+        <text class="action-card-title">消费</text>
+        <text class="action-card-arrow">›</text>
+      </view>
+
+      <!-- 编辑资料：full，cream，行式 -->
+      <view class="bento-card card-full card-cream edit-row-card" bindtap="goToEdit">
+        <text class="card-label">Edit Profile</text>
+        <text class="edit-row-arrow">›</text>
+      </view>
+
+      <!-- 联系信息：full，cream -->
+      <view class="bento-card card-full card-cream info-card"
+            wx:if="{{member.phone || member.notes}}">
+        <text class="card-label">Info</text>
+        <view class="info-row-bento" wx:if="{{member.phone}}">
+          <text class="info-key-bento">TEL</text>
+          <text class="info-val-bento">{{member.phone}}</text>
+        </view>
+        <view class="info-row-bento" wx:if="{{member.notes}}">
+          <text class="info-key-bento">NOTE</text>
+          <text class="info-val-bento">{{member.notes}}</text>
         </view>
       </view>
 
-      <!-- 余额 -->
-      <view class="balance-display">
-        <text class="balance-label-sm">账户余额</text>
-        <text class="balance-figure">¥ {{member.balance}}</text>
-      </view>
-    </view>
-
-    <!-- 操作按钮 -->
-    <view class="action-row">
-      <view class="action-btn btn-recharge" bindtap="goToTransaction" data-type="recharge">
-        <text>充值</text>
-      </view>
-      <view class="action-btn btn-consume" bindtap="goToTransaction" data-type="consume">
-        <text>消费</text>
-      </view>
-      <view class="action-btn btn-edit" bindtap="goToEdit">
-        <text>编辑</text>
-      </view>
-    </view>
-
-    <!-- 附加信息 -->
-    <view class="info-section" wx:if="{{member.phone || member.notes}}">
-      <view class="info-row" wx:if="{{member.phone}}">
-        <text class="info-key">手机号</text>
-        <text class="info-val">{{member.phone}}</text>
-      </view>
-      <view class="info-row" wx:if="{{member.notes}}">
-        <text class="info-key">备注</text>
-        <text class="info-val">{{member.notes}}</text>
-      </view>
-    </view>
-
-    <!-- 交易记录 -->
-    <view class="tx-section">
-      <text class="section-label">交易记录</text>
-
-      <view wx:if="{{txLoading}}" class="loading-wrap"><text>···</text></view>
-
-      <view wx:elif="{{transactions.length === 0}}" class="empty-tx">
-        <text>暂无记录</text>
+      <!-- 交易记录 header：full，forest -->
+      <view class="bento-card card-full card-forest tx-header-card">
+        <text class="card-label" style="color:#8A9A88">Transactions</text>
+        <view class="tx-header-row">
+          <text class="hero-number" style="font-size:56rpx;color:#FAF8F3">{{transactions.length}}</text>
+          <text class="tx-header-sub">笔记录</text>
+        </view>
       </view>
 
-      <view wx:else class="tx-list">
-        <view class="tx-row" wx:for="{{transactions}}" wx:key="_id">
-          <view class="tx-left">
-            <text class="tx-tag {{item.type === 'recharge' ? 'tag-in' : 'tag-out'}}">
-              {{item.type === 'recharge' ? '充值' : '消费'}}
-            </text>
-            <view class="tx-meta">
-              <text class="tx-time">{{item.timeStr}}</text>
-              <text class="tx-notes" wx:if="{{item.notes}}">{{item.notes}}</text>
-            </view>
+      <!-- 交易记录列表 -->
+      <view class="bento-card card-full card-cream" wx:if="{{txLoading}}">
+        <text class="loading-dots">···</text>
+      </view>
+
+      <view class="bento-card card-full card-cream empty-bento"
+            wx:elif="{{transactions.length === 0}}">
+        <text class="empty-label">暂无交易记录</text>
+      </view>
+
+      <view class="bento-card card-full card-cream tx-item-card"
+            wx:for="{{transactions}}" wx:key="_id" wx:else>
+        <view class="tx-item-top">
+          <view class="tx-tag-bento {{item.type === 'recharge' ? 'tag-recharge' : 'tag-consume'}}">
+            <text>{{item.type === 'recharge' ? '充值' : '消费'}}</text>
           </view>
-          <view class="tx-right">
-            <text class="tx-amount {{item.type === 'recharge' ? 'amount-in' : 'amount-out'}}">
-              {{item.type === 'recharge' ? '+' : '−'}}{{item.amount}}
-            </text>
-            <text class="tx-after">余额 {{item.balanceAfter}}</text>
+          <text class="tx-item-amount {{item.type === 'recharge' ? 'amount-pos' : 'amount-neg'}}">
+            {{item.type === 'recharge' ? '+' : '−'}}{{item.amount}}
+          </text>
+        </view>
+        <view class="tx-item-bottom">
+          <view class="tx-item-meta">
+            <text class="tx-item-time">{{item.timeStr}}</text>
+            <text class="tx-item-notes" wx:if="{{item.notes}}">{{item.notes}}</text>
           </view>
+          <text class="tx-item-after">余额 ¥{{item.balanceAfter}}</text>
         </view>
       </view>
-    </view>
 
-  </block>
+    </block>
 
+  </view>
 </view>

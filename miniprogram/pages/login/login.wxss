@@ -1,98 +1,105 @@
 /* pages/login/login.wxss */
 .login-page {
   min-height: 100vh;
-  background: #F5F5F2;
-  display: flex;
-  flex-direction: column;
-  padding: 0 56rpx;
-  box-sizing: border-box;
+  background: #EDEBE3;
 }
 
-/* 品牌区 */
-.brand-area {
-  flex: 1;
+/* 品牌 hero card */
+.brand-hero-card {
+  min-height: 500rpx;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 100rpx;
+  justify-content: flex-end;
+  padding: 48rpx;
 }
 
-.brand-mark {
-  width: 112rpx;
-  height: 112rpx;
-  border: 2rpx solid #111111;
+.brand-mark-bento {
+  width: 100rpx;
+  height: 100rpx;
+  border: 2rpx solid rgba(212, 230, 204, 0.5);
+  border-radius: 20rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 36rpx;
+  margin-bottom: 32rpx;
 }
-
-.brand-char {
-  font-size: 56rpx;
-  color: #111111;
-  font-weight: 700;
+.brand-char-bento {
+  font-size: 52rpx;
+  color: #D4E6CC;
+  font-weight: 800;
   line-height: 1;
 }
 
-.brand-name {
-  font-size: 38rpx;
-  font-weight: 700;
-  color: #111111;
-  letter-spacing: 6rpx;
-  margin-bottom: 14rpx;
+.brand-name-bento {
+  display: block;
+  font-size: 44rpx;
+  font-weight: 800;
+  color: #FAF8F3;
+  letter-spacing: 4rpx;
+  margin-bottom: 12rpx;
 }
-
-.brand-tagline {
+.brand-tagline-bento {
+  display: block;
   font-size: 22rpx;
-  color: #999999;
+  color: rgba(250, 248, 243, 0.45);
   letter-spacing: 3rpx;
 }
 
-/* 登录区 */
-.login-section {
-  padding: 56rpx 0;
-  padding-bottom: calc(80rpx + env(safe-area-inset-bottom));
+/* 装饰圆点 */
+.deco-dots {
+  position: absolute;
+  top: 48rpx;
+  right: 48rpx;
+  display: flex;
+  gap: 12rpx;
 }
-
-.login-heading {
-  display: block;
-  font-size: 52rpx;
-  font-weight: 700;
-  color: #111111;
-  margin-bottom: 10rpx;
-  letter-spacing: 1rpx;
+.dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
 }
+.dot-sage { background: #D4E6CC; opacity: 0.6; }
+.dot-cream { background: #FAF8F3; opacity: 0.3; }
 
-.login-sub {
-  display: block;
+/* 说明 card */
+.login-desc-card { display: flex; flex-direction: column; justify-content: space-between; min-height: 200rpx; }
+.login-desc-text {
   font-size: 26rpx;
-  color: #888888;
-  margin-bottom: 52rpx;
+  color: #5A7060;
+  line-height: 1.7;
+  margin-top: 8rpx;
 }
 
-.btn-login {
+/* 登录按钮 card */
+.login-action-card { min-height: 200rpx; display: flex; flex-direction: column; justify-content: space-between; }
+
+.btn-login-bento {
   width: 100%;
-  height: 96rpx;
-  background: #111111;
-  color: #FFFFFF;
+  height: 88rpx;
+  background: #1B2B22;
+  color: #FAF8F3;
   border: none;
-  border-radius: 4rpx;
-  font-size: 30rpx;
-  font-weight: 600;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  font-weight: 700;
   letter-spacing: 2rpx;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: auto;
 }
-.btn-login::after { border: none; }
-.btn-login.loading { opacity: 0.5; }
+.btn-login-bento::after { border: none; }
+.btn-login-bento.loading { opacity: 0.5; }
 
-.login-note {
-  display: block;
-  text-align: center;
-  font-size: 22rpx;
-  color: #CCCCCC;
-  margin-top: 28rpx;
-  letter-spacing: 1rpx;
+/* 声明 card */
+.notice-card {
+  padding: 24rpx 36rpx;
+  display: flex;
+  align-items: center;
+}
+.notice-text {
+  font-size: 20rpx;
+  color: rgba(250, 248, 243, 0.55);
+  letter-spacing: 2rpx;
+  font-weight: 600;
 }

@@ -1,73 +1,73 @@
 <!-- pages/home/home.wxml -->
 <view class="home-page">
+  <view class="bento-grid">
 
-  <!-- 顶部栏 -->
-  <view class="page-header">
-    <view class="header-left">
-      <text class="user-name">{{userInfo.nickname || '用户'}}</text>
-      <view class="role-tag {{isAdmin ? 'tag-admin' : 'tag-guest'}}">
-        <text>{{isAdmin ? '管理员' : '访客'}}</text>
+    <!-- 品牌 hero：full，forest -->
+    <view class="bento-card card-full card-forest home-hero-card">
+      <view class="hero-user-row">
+        <view class="hero-user-info">
+          <text class="hero-username">{{userInfo.nickname || '用户'}}</text>
+          <view class="role-tag-bento {{isAdmin ? 'tag-admin-bento' : 'tag-guest-bento'}}">
+            <text>{{isAdmin ? '管理员' : '访客'}}</text>
+          </view>
+        </view>
+        <text class="logout-bento" bindtap="handleLogout">退出</text>
       </view>
+      <text class="home-studio-name">{{content.title || '禅流中医推拿'}}</text>
+      <text class="home-studio-sub">{{content.subtitle || '专业推拿 · 调理身心'}}</text>
     </view>
-    <text class="logout-link" bindtap="handleLogout">退出</text>
+
+    <!-- loading -->
+    <view class="bento-card card-full card-cream" wx:if="{{loading}}">
+      <text class="loading-dots">···</text>
+    </view>
+
+    <block wx:else>
+
+      <!-- 介绍：full，cream -->
+      <view class="bento-card card-full card-cream about-card" wx:if="{{content.description}}">
+        <text class="card-label">About</text>
+        <text class="about-body">{{content.description}}</text>
+      </view>
+
+      <!-- 服务：half，sage  + 联系：half，cream -->
+      <view class="bento-card card-half card-sage services-card"
+            wx:if="{{content.services && content.services.length > 0}}">
+        <text class="card-label" style="color:#2E6640">Services</text>
+        <view class="svc-row-bento" wx:for="{{content.services}}" wx:key="index">
+          <text class="svc-name-bento">{{item.name}}</text>
+          <text class="svc-price-bento">¥{{item.price}}</text>
+        </view>
+      </view>
+
+      <view class="bento-card card-half card-cream contact-card"
+            wx:if="{{content.contact || content.address}}">
+        <text class="card-label">Contact</text>
+        <view class="contact-row-bento" wx:if="{{content.contact}}">
+          <text class="contact-key-bento">TEL</text>
+          <text class="contact-val-bento">{{content.contact}}</text>
+        </view>
+        <view class="contact-row-bento" wx:if="{{content.address}}">
+          <text class="contact-key-bento">LOC</text>
+          <text class="contact-val-bento">{{content.address}}</text>
+        </view>
+      </view>
+
+      <!-- 管理入口（仅管理员）-->
+      <block wx:if="{{isAdmin}}">
+        <view class="bento-card card-half card-forest admin-nav-card" bindtap="goToMembers">
+          <text class="card-label" style="color:#8A9A88">Admin</text>
+          <text class="admin-nav-title">会员管理</text>
+          <text class="admin-nav-arrow">›</text>
+        </view>
+        <view class="bento-card card-half card-terra admin-nav-card" bindtap="goToEditHome">
+          <text class="card-label" style="color:#FAF8F3;opacity:0.55">Config</text>
+          <text class="admin-nav-title">编辑主页</text>
+          <text class="admin-nav-arrow">›</text>
+        </view>
+      </block>
+
+    </block>
+
   </view>
-
-  <!-- Loading -->
-  <view wx:if="{{loading}}" class="loading-wrap"><text>···</text></view>
-
-  <block wx:else>
-
-    <!-- 工作室名称区 -->
-    <view class="studio-hero">
-      <text class="studio-name">{{content.title}}</text>
-      <text class="studio-sub">{{content.subtitle}}</text>
-    </view>
-
-    <!-- 介绍 -->
-    <view class="content-block" wx:if="{{content.description}}">
-      <text class="block-label">介绍</text>
-      <text class="block-body">{{content.description}}</text>
-    </view>
-
-    <!-- 服务项目 -->
-    <view class="content-block" wx:if="{{content.services && content.services.length > 0}}">
-      <text class="block-label">服务</text>
-      <view class="service-list">
-        <view class="service-row" wx:for="{{content.services}}" wx:key="index">
-          <text class="svc-name">{{item.name}}</text>
-          <text class="svc-price">¥ {{item.price}}</text>
-        </view>
-      </view>
-    </view>
-
-    <!-- 联系方式 -->
-    <view class="content-block" wx:if="{{content.contact || content.address}}">
-      <text class="block-label">联系</text>
-      <view class="info-row" wx:if="{{content.contact}}">
-        <text class="info-key">电话</text>
-        <text class="info-val">{{content.contact}}</text>
-      </view>
-      <view class="info-row" wx:if="{{content.address}}">
-        <text class="info-key">地址</text>
-        <text class="info-val">{{content.address}}</text>
-      </view>
-    </view>
-
-    <!-- 管理入口（仅管理员可见） -->
-    <view class="content-block admin-block" wx:if="{{isAdmin}}">
-      <text class="block-label">管理</text>
-      <view class="nav-list">
-        <view class="nav-row" bindtap="goToMembers">
-          <text class="nav-label">会员管理</text>
-          <text class="nav-arrow">›</text>
-        </view>
-        <view class="nav-row" bindtap="goToEditHome">
-          <text class="nav-label">编辑主页</text>
-          <text class="nav-arrow">›</text>
-        </view>
-      </view>
-    </view>
-
-  </block>
-
 </view>

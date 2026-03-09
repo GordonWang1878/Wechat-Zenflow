@@ -1,69 +1,73 @@
 <!-- pages/admin/transaction/transaction.wxml -->
-<view class="tx-page">
+<view class="tx-bento-page">
+  <view class="bento-grid">
 
-  <!-- 会员信息 -->
-  <view class="member-strip" wx:if="{{member}}">
-    <view class="strip-avatar">
-      <text>{{member.name ? member.name[0] : '?'}}</text>
+    <!-- 操作 hero：full，动态底色 -->
+    <view class="bento-card card-full tx-hero-card hero-{{type}}" wx:if="{{member}}">
+      <view class="tx-hero-content">
+        <view class="tx-avatar-square">
+          <text>{{member.name ? member.name[0] : '?'}}</text>
+        </view>
+        <view class="tx-hero-meta">
+          <text class="card-label" style="color:#FAF8F3;opacity:0.5">
+            {{type === 'recharge' ? 'RECHARGE' : 'CONSUME'}}
+          </text>
+          <text class="tx-hero-name">{{member.name}}</text>
+          <text class="tx-hero-no">{{member.memberNo}}</text>
+        </view>
+      </view>
+      <view class="tx-hero-balance">
+        <text class="card-label" style="color:#FAF8F3;opacity:0.5">Current Balance</text>
+        <text class="tx-hero-bal-num">¥ {{member.balance}}</text>
+      </view>
     </view>
-    <view class="strip-meta">
-      <text class="strip-name">{{member.name}}</text>
-      <text class="strip-no">{{member.memberNo}}</text>
+
+    <!-- 金额输入：full，cream -->
+    <view class="bento-card card-full card-cream amount-card">
+      <text class="card-label">Amount</text>
+      <view class="amount-input-row">
+        <text class="amount-currency">¥</text>
+        <input
+          class="amount-input-bento"
+          type="digit"
+          placeholder="0.00"
+          placeholder-style="color:#D0CEC6"
+          value="{{amount}}"
+          bindinput="onAmountInput"
+          focus="true"
+        />
+      </view>
+      <view class="projected-row-bento" wx:if="{{projectedBalance !== null}}">
+        <text class="projected-label-bento">交易后余额</text>
+        <text class="projected-val-bento {{projectedBalance < 0 ? 'negative' : ''}}">
+          ¥ {{projectedBalance}}
+        </text>
+      </view>
     </view>
-    <view class="strip-balance">
-      <text class="strip-bal-label">当前余额</text>
-      <text class="strip-bal-amount">¥ {{member.balance}}</text>
+
+    <!-- 备注：full，sage -->
+    <view class="bento-card card-full card-sage notes-bento-card">
+      <text class="card-label" style="color:#2E6640">Note</text>
+      <textarea
+        class="notes-input-bento"
+        placeholder="可选备注（最多 100 字）"
+        placeholder-style="color:#8A9A88"
+        value="{{notes}}"
+        bindinput="onNotesInput"
+        maxlength="100"
+        auto-height
+      />
     </view>
-  </view>
 
-  <!-- 类型标签 -->
-  <view class="type-indicator {{type}}">
-    <text>{{type === 'recharge' ? '充值' : '消费'}}</text>
-  </view>
-
-  <!-- 金额输入 -->
-  <view class="amount-block">
-    <text class="currency">¥</text>
-    <input
-      class="amount-input"
-      type="digit"
-      placeholder="0.00"
-      placeholder-style="color:#DDDDDD"
-      value="{{amount}}"
-      bindinput="onAmountInput"
-      focus="true"
-    />
-  </view>
-
-  <!-- 预览余额 -->
-  <view class="projected-block" wx:if="{{projectedBalance !== null}}">
-    <text class="projected-label">交易后余额</text>
-    <text class="projected-val {{projectedBalance < 0 ? 'negative' : ''}}">¥ {{projectedBalance}}</text>
-  </view>
-
-  <!-- 备注 -->
-  <view class="notes-block">
-    <text class="notes-label">备注</text>
-    <textarea
-      class="notes-input"
-      placeholder="可选备注..."
-      placeholder-style="color:#CCCCCC"
-      value="{{notes}}"
-      bindinput="onNotesInput"
-      maxlength="100"
-      auto-height
-    />
-  </view>
-
-  <!-- 提交按钮 -->
-  <view class="submit-area">
-    <button
-      class="submit-btn {{type}} {{submitting ? 'disabled' : ''}}"
+    <!-- 提交：full，动态底色 -->
+    <view
+      class="bento-card card-full submit-card submit-{{type}} {{submitting ? 'disabled' : ''}}"
       bindtap="handleSubmit"
-      disabled="{{submitting}}"
     >
-      {{submitting ? '处理中...' : (type === 'recharge' ? '确认充值' : '确认消费')}}
-    </button>
-  </view>
+      <text class="submit-card-text">
+        {{submitting ? '处理中...' : (type === 'recharge' ? '确认充值' : '确认消费')}}
+      </text>
+    </view>
 
+  </view>
 </view>
