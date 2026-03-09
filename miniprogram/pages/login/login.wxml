@@ -1,42 +1,29 @@
 <!-- pages/login/login.wxml -->
-<view class="login-page">
-  <view class="bento-grid">
+<view class="login-screen">
 
-    <!-- 品牌 hero：full，forest -->
-    <view class="bento-card card-full card-forest brand-hero-card">
-      <view class="brand-mark-bento">
-        <text class="brand-char-bento">禅</text>
-      </view>
-      <text class="brand-name-bento">禅流中医推拿</text>
-      <text class="brand-tagline-bento">专业推拿 · 调理身心</text>
-      <view class="deco-dots">
-        <view class="dot dot-sage"></view>
-        <view class="dot dot-cream"></view>
-      </view>
-    </view>
-
-    <!-- 说明 card：half，cream -->
-    <view class="bento-card card-half card-cream login-desc-card">
-      <text class="card-label">Login</text>
-      <text class="login-desc-text">使用微信账号安全登录系统</text>
-    </view>
-
-    <!-- 登录按钮 card：half，sage -->
-    <view class="bento-card card-half card-sage login-action-card">
-      <text class="card-label" style="color:#2E6640">微信登录</text>
-      <button
-        class="btn-login-bento {{loading ? 'loading' : ''}}"
-        bindtap="handleLogin"
-        disabled="{{loading}}"
-      >
-        {{loading ? '···' : '一键进入'}}
-      </button>
-    </view>
-
-    <!-- 声明 card：full，terra -->
-    <view class="bento-card card-full card-terra notice-card">
-      <text class="notice-text">MEMBERS ONLY · 仅向授权用户开放</text>
-    </view>
-
+  <!-- 绿色英雄区 -->
+  <view class="login-hero">
+    <text class="login-logo">🌿</text>
+    <text class="login-brand">禅流</text>
+    <text class="login-tagline">中医推拿工作室</text>
   </view>
+
+  <!-- 白色底部 sheet -->
+  <view class="login-sheet">
+    <text class="login-sheet-title">欢迎回来</text>
+    <text class="login-sheet-body">使用微信账号一键登录，开启您的健康管理之旅</text>
+
+    <view
+      class="md-btn md-btn-filled login-btn {{loading ? 'disabled' : ''}}"
+      bindtap="handleLogin"
+    >
+      <text>{{loading ? '登录中...' : '微信一键登录'}}</text>
+    </view>
+
+    <view class="login-notice">
+      <text>🔒</text>
+      <text class="login-notice-text">本小程序仅限工作室会员使用</text>
+    </view>
+  </view>
+
 </view>

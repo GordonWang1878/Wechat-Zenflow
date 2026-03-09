@@ -1,171 +1,194 @@
-/* app.wxss —— Bento Grid 2.0 全局样式 */
+/* app.wxss — Material Design 3 全局样式 */
 
 /* ===== 基础 ===== */
 page {
-  background: #EDEBE3;
+  background: #F5F5F5;
   font-family: -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif;
-  color: #1B2B22;
+  color: #1C1B1F;
   font-size: 28rpx;
   -webkit-font-smoothing: antialiased;
 }
 
-/* ===== Bento Grid 容器 ===== */
-.bento-grid {
+/* ===== 页面容器 ===== */
+.md-screen { min-height: 100vh; background: #F5F5F5; padding-bottom: 48rpx; }
+
+/* ===== 卡片 ===== */
+.md-card {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 32rpx;
+  margin: 0 24rpx 16rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.06);
+}
+.md-card-primary {
+  background: #2E6640;
+  border-radius: 0 0 36rpx 36rpx;
+  padding: 48rpx 32rpx 56rpx;
+  margin-bottom: 20rpx;
+}
+.md-card-tonal {
+  background: #D4EDDA;
+  border-radius: 20rpx;
+  padding: 32rpx;
+  margin: 0 24rpx 16rpx;
+}
+.md-card-tonal-secondary {
+  background: #FDEBD0;
+  border-radius: 20rpx;
+  padding: 32rpx;
+  margin: 0 24rpx 16rpx;
+}
+
+/* ===== 列表条目 ===== */
+.md-list-item {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16rpx;
-  padding: 16rpx;
-  box-sizing: border-box;
+  align-items: center;
+  padding: 20rpx 0;
+  gap: 20rpx;
+  border-bottom: 1rpx solid #F5F5F5;
 }
+.md-list-item:last-child { border-bottom: none; }
 
-/* ===== Bento Card 基础 ===== */
-.bento-card {
-  border-radius: 28rpx;
-  padding: 36rpx;
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
-}
-
-/* 宽度变体 */
-.card-full { width: 100%; }
-.card-half { width: calc(50% - 8rpx); }
-
-/* 颜色变体 */
-.card-cream  { background: #FAF8F3; }
-.card-forest { background: #1B2B22; }
-.card-sage   { background: #D4E6CC; }
-.card-terra  { background: #B8694A; }
-.card-green  { background: #2E6640; }
-
-/* ===== Label（全大写 + 字间距）===== */
-.card-label {
-  display: block;
-  font-size: 18rpx;
-  font-weight: 700;
-  letter-spacing: 3rpx;
-  text-transform: uppercase;
-  color: #8A9A88;
-  margin-bottom: 14rpx;
-}
-
-/* ===== 英雄数字 ===== */
-.hero-number {
-  display: block;
-  font-size: 80rpx;
-  font-weight: 800;
-  letter-spacing: -3rpx;
-  line-height: 1.05;
-}
-
-/* ===== 导航 card 元素 ===== */
-.admin-nav-title {
-  display: block;
-  font-size: 34rpx;
-  font-weight: 700;
-  color: #FAF8F3;
-  margin-top: 8rpx;
-}
-.admin-nav-arrow {
-  position: absolute;
-  right: 32rpx;
-  bottom: 28rpx;
-  font-size: 64rpx;
-  color: #FAF8F3;
-  opacity: 0.3;
-  line-height: 1;
-}
-
-/* ===== Action card（充值/消费）===== */
-.action-card { min-height: 180rpx; }
-.action-card-title {
-  display: block;
-  font-size: 36rpx;
-  font-weight: 700;
-  color: #FAF8F3;
-  margin-top: 8rpx;
-}
-.action-card-arrow {
-  position: absolute;
-  right: 32rpx;
-  bottom: 28rpx;
-  font-size: 64rpx;
-  color: #FAF8F3;
-  opacity: 0.3;
-  line-height: 1;
-}
-
-/* ===== Submit card ===== */
-.submit-card {
+/* Leading icon 容器 */
+.md-leading {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100rpx;
-}
-.submit-card.disabled { opacity: 0.4; }
-.submit-card-text {
-  font-size: 30rpx;
-  font-weight: 700;
-  letter-spacing: 4rpx;
-  color: #FAF8F3;
-}
-
-/* ===== 行式 card（edit row）===== */
-.edit-row-card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 88rpx;
-  padding-top: 24rpx;
-  padding-bottom: 24rpx;
-}
-.edit-row-card .card-label { margin-bottom: 0; }
-.edit-row-arrow { font-size: 44rpx; color: #B0AEA6; line-height: 1; }
-
-/* ===== 表单组（bento 内）===== */
-.form-group-bento {
-  margin-bottom: 36rpx;
-  padding-bottom: 32rpx;
-  border-bottom: 1rpx solid #E8E6DE;
-}
-.form-input-bento {
-  width: 100%;
-  height: 72rpx;
-  background: transparent;
-  border: none;
+  flex-shrink: 0;
   font-size: 32rpx;
-  color: #1B2B22;
+}
+.md-leading-primary { background: #D4EDDA; }
+.md-leading-secondary { background: #FDEBD0; }
+.md-leading-surface { background: #F0F0F0; }
+
+/* ===== 按钮 ===== */
+.md-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50rpx;
+  height: 88rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  letter-spacing: 1rpx;
+  gap: 10rpx;
+}
+.md-btn-filled { background: #2E6640; color: #FFFFFF; }
+.md-btn-filled-secondary { background: #B8694A; color: #FFFFFF; }
+.md-btn-tonal { background: #D4EDDA; color: #1B4332; }
+.md-btn-tonal-secondary { background: #FDEBD0; color: #7B3F26; }
+.md-btn-outlined { border: 2rpx solid #E0E0E0; color: #49454F; background: transparent; }
+.md-btn.disabled { opacity: 0.38; }
+
+/* ===== FAB ===== */
+.md-fab {
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 32rpx;
+  background: #2E6640;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6rpx 20rpx rgba(46,102,64,0.4);
+  font-size: 48rpx;
+  color: #FFFFFF;
+}
+
+/* ===== Chips ===== */
+.md-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8rpx 24rpx;
+  border-radius: 50rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  gap: 8rpx;
+}
+.md-chip-primary { background: #D4EDDA; color: #1B4332; }
+.md-chip-secondary { background: #FDEBD0; color: #7B3F26; }
+.md-chip-surface { background: #F0F0F0; color: #49454F; }
+
+/* ===== 搜索栏 ===== */
+.md-search {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50rpx;
+  padding: 0 28rpx;
+  height: 72rpx;
+  gap: 16rpx;
+  margin-top: 28rpx;
+}
+.md-search-input {
+  flex: 1;
+  font-size: 27rpx;
+  color: #FFFFFF;
+  background: transparent;
+}
+
+/* ===== 表单字段 ===== */
+.md-field { margin-bottom: 24rpx; }
+.md-field-label {
+  display: block;
+  font-size: 20rpx;
+  font-weight: 700;
+  color: #2E6640;
+  letter-spacing: 1rpx;
+  margin-bottom: 10rpx;
+}
+.md-field-container {
+  border: 1.5rpx solid #E0E0E0;
+  border-radius: 14rpx;
+  padding: 18rpx 24rpx;
+  background: #FAFAFA;
+}
+.md-field-input {
+  width: 100%;
+  font-size: 28rpx;
+  color: #1C1B1F;
+  height: 52rpx;
+  background: transparent;
   box-sizing: border-box;
 }
-.form-textarea-bento {
+.md-field-textarea {
   width: 100%;
-  min-height: 120rpx;
-  background: transparent;
-  border: none;
+  min-height: 100rpx;
   font-size: 28rpx;
-  color: #1B2B22;
+  color: #1C1B1F;
+  background: transparent;
   line-height: 1.8;
   box-sizing: border-box;
 }
-.picker-bento {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 72rpx;
+
+/* ===== 分割线 ===== */
+.md-divider { height: 1rpx; background: #F0F0F0; margin: 8rpx 0; }
+
+/* ===== Section 标题 ===== */
+.md-section-title {
+  display: block;
+  font-size: 20rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+  color: #9E9E9E;
+  padding: 28rpx 32rpx 12rpx;
+  text-transform: uppercase;
 }
-.picker-val-bento { font-size: 32rpx; color: #1B2B22; }
-.picker-arrow-bento { font-size: 36rpx; color: #B0AEA6; }
-.required-dot { color: #B8694A; }
 
 /* ===== Loading / Empty ===== */
 .loading-dots {
   display: block;
   text-align: center;
   font-size: 40rpx;
-  color: #8A9A88;
+  color: #BDBDBD;
   letter-spacing: 8rpx;
-  padding: 40rpx 0;
+  padding: 60rpx 0;
 }
-.empty-bento { text-align: center; padding: 40rpx 0; }
-.empty-label { font-size: 26rpx; color: #B0AEA6; letter-spacing: 1rpx; }
+.md-empty {
+  text-align: center;
+  padding: 80rpx 40rpx;
+}
+.md-empty-icon { font-size: 80rpx; display: block; margin-bottom: 16rpx; }
+.md-empty-text { font-size: 27rpx; color: #9E9E9E; }

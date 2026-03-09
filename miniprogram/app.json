@@ -10,10 +10,10 @@
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#1B2B22",
+    "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "禅流",
-    "navigationBarTextStyle": "white",
-    "backgroundColor": "#EDEBE3"
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F5F5F5"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2",

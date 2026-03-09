@@ -1,85 +1,92 @@
 /* pages/home/home.wxss */
-.home-page { background: #EDEBE3; min-height: 100vh; }
 
-/* hero card */
-.home-hero-card {
-  min-height: 300rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 36rpx;
+/* 英雄 header */
+.home-hero {
+  background: #2E6640;
+  border-radius: 0 0 36rpx 36rpx;
+  padding: 48rpx 32rpx 56rpx;
+  margin-bottom: 20rpx;
 }
-
-.hero-user-row {
+.home-hero-top {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 40rpx;
+  margin-bottom: 36rpx;
 }
-.hero-user-info { display: flex; align-items: center; gap: 14rpx; }
-.hero-username { font-size: 26rpx; color: rgba(250,248,243,0.7); font-weight: 500; }
-
-.role-tag-bento {
-  font-size: 18rpx;
+.home-greeting {
+  display: block;
+  font-size: 24rpx;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 8rpx;
+}
+.home-username {
+  display: block;
+  font-size: 40rpx;
   font-weight: 700;
-  letter-spacing: 2rpx;
-  padding: 5rpx 14rpx;
-  border-radius: 6rpx;
+  color: #FFFFFF;
 }
-.tag-admin-bento { background: #D4E6CC; color: #1B2B22; }
-.tag-guest-bento { background: rgba(255,255,255,0.12); color: rgba(250,248,243,0.6); }
+.home-role-badge {
+  padding: 10rpx 24rpx;
+  border-radius: 50rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+.badge-admin { background: rgba(255,255,255,0.2); color: #FFFFFF; }
+.badge-member { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
 
-.logout-bento { font-size: 22rpx; color: rgba(250,248,243,0.4); letter-spacing: 1rpx; }
-
+.home-studio-row {}
 .home-studio-name {
   display: block;
-  font-size: 52rpx;
-  font-weight: 800;
-  color: #FAF8F3;
-  letter-spacing: 2rpx;
-  margin-bottom: 10rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 8rpx;
 }
 .home-studio-sub {
   display: block;
-  font-size: 22rpx;
-  color: rgba(250,248,243,0.45);
-  letter-spacing: 2rpx;
+  font-size: 24rpx;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 1rpx;
 }
 
-/* 介绍 */
-.about-card {}
-.about-body { font-size: 28rpx; color: #4A6050; line-height: 1.9; }
-
-/* 服务 */
-.services-card { min-height: 220rpx; }
-.svc-row-bento {
+/* 内容卡片内部 */
+.home-section-header {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 12rpx 0;
-  border-bottom: 1rpx solid rgba(46,102,64,0.12);
-}
-.svc-row-bento:last-child { border-bottom: none; }
-.svc-name-bento { font-size: 26rpx; color: #2C4A38; }
-.svc-price-bento { font-size: 26rpx; color: #2E6640; font-weight: 700; }
-
-/* 联系 */
-.contact-card { min-height: 220rpx; }
-.contact-row-bento {
-  display: flex;
-  align-items: flex-start;
-  padding: 10rpx 0;
+  align-items: center;
   gap: 16rpx;
 }
-.contact-key-bento {
-  font-size: 18rpx;
-  font-weight: 700;
-  letter-spacing: 2rpx;
-  color: #B0AEA6;
-  padding-top: 4rpx;
-  flex-shrink: 0;
-}
-.contact-val-bento { font-size: 26rpx; color: #3A5544; flex: 1; line-height: 1.6; }
+.home-section-icon { font-size: 36rpx; }
+.home-section-label { font-size: 28rpx; font-weight: 600; color: #1C1B1F; }
 
-/* 管理 nav card */
-.admin-nav-card { min-height: 200rpx; }
+.home-desc-body { font-size: 27rpx; color: #49454F; line-height: 1.8; }
+
+.home-svc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #F5F5F5;
+}
+.home-svc-row:last-child { border-bottom: none; }
+.home-svc-name { font-size: 28rpx; color: #1C1B1F; }
+.home-svc-price { font-size: 28rpx; font-weight: 700; color: #2E6640; }
+
+/* 管理员入口 */
+.home-admin-grid {
+  display: flex;
+  gap: 16rpx;
+  padding: 0 24rpx 16rpx;
+}
+.home-admin-tile {
+  flex: 1;
+  border-radius: 20rpx;
+  padding: 36rpx 24rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14rpx;
+}
+.tile-primary { background: #D4EDDA; }
+.tile-secondary { background: #FDEBD0; }
+.tile-icon { font-size: 52rpx; }
+.tile-label { font-size: 28rpx; font-weight: 600; color: #1C1B1F; }

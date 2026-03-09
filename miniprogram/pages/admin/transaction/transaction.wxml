@@ -1,73 +1,71 @@
 <!-- pages/admin/transaction/transaction.wxml -->
-<view class="tx-bento-page">
-  <view class="bento-grid">
+<view class="md-screen">
 
-    <!-- 操作 hero：full，动态底色 -->
-    <view class="bento-card card-full tx-hero-card hero-{{type}}" wx:if="{{member}}">
-      <view class="tx-hero-content">
-        <view class="tx-avatar-square">
-          <text>{{member.name ? member.name[0] : '?'}}</text>
-        </view>
-        <view class="tx-hero-meta">
-          <text class="card-label" style="color:#FAF8F3;opacity:0.5">
-            {{type === 'recharge' ? 'RECHARGE' : 'CONSUME'}}
-          </text>
-          <text class="tx-hero-name">{{member.name}}</text>
-          <text class="tx-hero-no">{{member.memberNo}}</text>
-        </view>
+  <!-- 动态彩色 header -->
+  <view class="tx-hero tx-hero-{{type}}" wx:if="{{member}}">
+    <text class="tx-hero-label">{{type === 'recharge' ? '💰 充值' : '🛒 消费'}}</text>
+    <view class="tx-hero-member">
+      <view class="tx-hero-avatar">
+        <text>{{member.name ? member.name[0] : '?'}}</text>
       </view>
-      <view class="tx-hero-balance">
-        <text class="card-label" style="color:#FAF8F3;opacity:0.5">Current Balance</text>
-        <text class="tx-hero-bal-num">¥ {{member.balance}}</text>
+      <view>
+        <text class="tx-hero-name">{{member.name}}</text>
+        <text class="tx-hero-meta">{{member.memberNo}} · 当前余额 ¥{{member.balance}}</text>
       </view>
     </view>
+  </view>
 
-    <!-- 金额输入：full，cream -->
-    <view class="bento-card card-full card-cream amount-card">
-      <text class="card-label">Amount</text>
-      <view class="amount-input-row">
-        <text class="amount-currency">¥</text>
-        <input
-          class="amount-input-bento"
-          type="digit"
-          placeholder="0.00"
-          placeholder-style="color:#D0CEC6"
-          value="{{amount}}"
-          bindinput="onAmountInput"
-          focus="true"
-        />
-      </view>
-      <view class="projected-row-bento" wx:if="{{projectedBalance !== null}}">
-        <text class="projected-label-bento">交易后余额</text>
-        <text class="projected-val-bento {{projectedBalance < 0 ? 'negative' : ''}}">
+  <!-- 金额输入 -->
+  <view class="md-card tx-amount-card">
+    <text style="font-size:20rpx;font-weight:700;color:#9E9E9E;letter-spacing:2rpx">金额 AMOUNT</text>
+    <view class="tx-amount-row">
+      <text class="tx-currency">¥</text>
+      <input
+        class="tx-amount-input"
+        type="digit"
+        placeholder="0.00"
+        placeholder-style="color:#E0E0E0"
+        value="{{amount}}"
+        bindinput="onAmountInput"
+        focus="true"
+      />
+    </view>
+    <view class="tx-projected-row" wx:if="{{projectedBalance !== null}}">
+      <view class="md-divider"></view>
+      <view style="display:flex;align-items:center;justify-content:space-between;margin-top:16rpx">
+        <text style="font-size:24rpx;color:#9E9E9E">交易后余额</text>
+        <text class="tx-projected-val {{projectedBalance < 0 ? 'projected-neg' : 'projected-pos'}}">
           ¥ {{projectedBalance}}
         </text>
       </view>
     </view>
+  </view>
 
-    <!-- 备注：full，sage -->
-    <view class="bento-card card-full card-sage notes-bento-card">
-      <text class="card-label" style="color:#2E6640">Note</text>
-      <textarea
-        class="notes-input-bento"
-        placeholder="可选备注（最多 100 字）"
-        placeholder-style="color:#8A9A88"
-        value="{{notes}}"
-        bindinput="onNotesInput"
-        maxlength="100"
-        auto-height
-      />
+  <!-- 备注 -->
+  <view class="md-card">
+    <view style="display:flex;align-items:center;gap:12rpx;margin-bottom:16rpx">
+      <text style="font-size:28rpx">📝</text>
+      <text style="font-size:20rpx;font-weight:700;color:#9E9E9E;letter-spacing:2rpx">备注 NOTE</text>
     </view>
+    <textarea
+      class="tx-notes-input"
+      placeholder="可选备注（最多 100 字）"
+      placeholder-style="color:#C8C8C8"
+      value="{{notes}}"
+      bindinput="onNotesInput"
+      maxlength="100"
+      auto-height
+    />
+  </view>
 
-    <!-- 提交：full，动态底色 -->
+  <!-- 提交按钮 -->
+  <view style="padding:8rpx 24rpx 40rpx">
     <view
-      class="bento-card card-full submit-card submit-{{type}} {{submitting ? 'disabled' : ''}}"
+      class="md-btn tx-submit-btn tx-submit-{{type}} {{submitting ? 'disabled' : ''}}"
       bindtap="handleSubmit"
     >
-      <text class="submit-card-text">
-        {{submitting ? '处理中...' : (type === 'recharge' ? '确认充值' : '确认消费')}}
-      </text>
+      <text>{{submitting ? '处理中...' : (type === 'recharge' ? '✅ 确认充值' : '✅ 确认消费')}}</text>
     </view>
-
   </view>
+
 </view>
