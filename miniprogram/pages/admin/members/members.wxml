@@ -22,19 +22,24 @@
     <text>加载中...</text>
   </view>
 
-  <!-- 空状态 -->
+  <!-- 无会员空状态 -->
   <view wx:elif="{{members.length === 0}}" class="empty-state">
     <text class="empty-icon">👤</text>
     <text class="empty-text">暂无会员，点击右上角新增</text>
+  </view>
+
+  <!-- 搜索无结果 -->
+  <view wx:elif="{{filteredMembers.length === 0}}" class="empty-state">
+    <text class="empty-icon">🔍</text>
+    <text class="empty-text">未找到「{{keyword}}」相关会员</text>
   </view>
 
   <!-- 会员列表 -->
   <view wx:else class="member-list">
     <view
       class="member-card"
-      wx:for="{{members}}"
+      wx:for="{{filteredMembers}}"
       wx:key="_id"
-      wx:if="{{!keyword || item.name.includes(keyword) || item.memberNo.includes(keyword) || (item.phone && item.phone.includes(keyword))}}"
     >
       <!-- 左侧点击跳转详情 -->
       <view class="member-main" bindtap="goToDetail" data-id="{{item._id}}">

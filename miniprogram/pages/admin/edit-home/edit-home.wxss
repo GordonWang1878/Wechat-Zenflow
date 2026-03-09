@@ -1,9 +1,7 @@
 /* pages/admin/edit-home/edit-home.wxss */
 .edit-page {
-  background: #f5f5f0;
+  background: #F5F5F2;
   min-height: 100vh;
-  padding: 24rpx;
-  box-sizing: border-box;
   padding-bottom: 160rpx;
 }
 
@@ -11,105 +9,131 @@
   display: flex;
   justify-content: center;
   padding: 100rpx 0;
-  color: #999;
+  color: #CCCCCC;
+  font-size: 40rpx;
+  letter-spacing: 8rpx;
 }
 
 /* 分组卡片 */
 .section-card {
-  background: #fff;
-  border-radius: 16rpx;
-  padding: 32rpx;
-  margin-bottom: 24rpx;
-  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.05);
+  background: #FFFFFF;
+  padding: 40rpx;
+  margin-top: 24rpx;
+  border-top: 1rpx solid #E0E0DC;
+  border-bottom: 1rpx solid #E0E0DC;
 }
+
 .section-label {
   display: block;
-  font-size: 28rpx;
+  font-size: 20rpx;
   font-weight: 600;
-  color: #4a7c59;
-  margin-bottom: 24rpx;
-  padding-bottom: 16rpx;
-  border-bottom: 2rpx solid #e8f5e9;
+  color: #AAAAAA;
+  letter-spacing: 4rpx;
+  text-transform: uppercase;
+  margin-bottom: 32rpx;
 }
 
 /* 表单元素 */
-.form-group { margin-bottom: 28rpx; }
-.form-label { display: block; font-size: 26rpx; color: #666; margin-bottom: 10rpx; }
-.required { color: #e53935; }
+.form-group { margin-bottom: 40rpx; }
+
+.form-label {
+  display: block;
+  font-size: 20rpx;
+  color: #AAAAAA;
+  letter-spacing: 2rpx;
+  margin-bottom: 14rpx;
+}
+.required { color: #C0392B; }
+
 .form-input {
   width: 100%;
-  height: 84rpx;
-  background: #f8f8f5;
-  border-radius: 10rpx;
-  padding: 0 20rpx;
-  font-size: 28rpx;
-  color: #333;
-  box-sizing: border-box;
-}
-.form-textarea {
-  width: 100%;
-  min-height: 140rpx;
-  background: #f8f8f5;
-  border-radius: 10rpx;
-  padding: 18rpx 20rpx;
-  font-size: 28rpx;
-  color: #333;
+  height: 76rpx;
+  background: transparent;
+  border: none;
+  border-bottom: 1rpx solid #E0E0DC;
+  padding: 0;
+  font-size: 30rpx;
+  color: #111111;
   box-sizing: border-box;
 }
 
+.form-textarea {
+  width: 100%;
+  min-height: 160rpx;
+  background: transparent;
+  border: none;
+  border-bottom: 1rpx solid #E0E0DC;
+  padding: 12rpx 0;
+  font-size: 28rpx;
+  color: #111111;
+  box-sizing: border-box;
+  line-height: 1.8;
+}
+
 /* 服务列表 */
-.service-list { margin-bottom: 20rpx; }
+.service-list { margin-bottom: 24rpx; }
 .service-item {
   display: flex;
   align-items: center;
-  padding: 16rpx 0;
-  border-bottom: 1rpx solid #f5f5f0;
-  gap: 12rpx;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #F0F0EC;
+  gap: 16rpx;
 }
-.svc-name { flex: 1; font-size: 28rpx; color: #333; }
-.svc-price { font-size: 28rpx; color: #c8956c; font-weight: 600; width: 120rpx; text-align: right; }
+.svc-name { flex: 1; font-size: 28rpx; color: #333333; }
+.svc-price {
+  font-size: 28rpx;
+  color: #2E6640;
+  font-weight: 600;
+  width: 120rpx;
+  text-align: right;
+}
 .svc-del {
-  background: #ffeaea;
-  color: #e53935;
   font-size: 22rpx;
-  padding: 6rpx 16rpx;
-  border-radius: 8rpx;
+  color: #C0392B;
+  padding: 6rpx 0;
+  letter-spacing: 1rpx;
 }
 
 /* 新增服务行 */
 .add-service-row {
   display: flex;
   align-items: center;
-  gap: 12rpx;
-  margin-top: 16rpx;
+  gap: 16rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #F0F0EC;
 }
 .svc-input {
   flex: 1;
   height: 72rpx;
-  background: #f8f8f5;
-  border-radius: 10rpx;
-  padding: 0 16rpx;
+  background: transparent;
+  border: none;
+  border-bottom: 1rpx solid #E0E0DC;
+  padding: 0;
   font-size: 26rpx;
-  color: #333;
+  color: #111111;
 }
 .svc-price-input {
-  width: 140rpx;
+  width: 130rpx;
   height: 72rpx;
-  background: #f8f8f5;
-  border-radius: 10rpx;
-  padding: 0 16rpx;
+  background: transparent;
+  border: none;
+  border-bottom: 1rpx solid #E0E0DC;
+  padding: 0;
   font-size: 26rpx;
-  color: #333;
+  color: #111111;
+  text-align: right;
 }
 .svc-add-btn {
-  background: #4a7c59;
-  color: #fff;
+  background: #111111;
+  color: #FFFFFF;
   height: 72rpx;
   padding: 0 28rpx;
-  border-radius: 10rpx;
+  border-radius: 4rpx;
   display: flex;
   align-items: center;
-  font-size: 26rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  letter-spacing: 1rpx;
   white-space: nowrap;
 }
 
@@ -119,23 +143,24 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 24rpx;
-  background: #fff;
-  border-top: 1rpx solid #eee;
+  padding: 24rpx 40rpx;
+  background: #FFFFFF;
+  border-top: 1rpx solid #E0E0DC;
   padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
 }
 .save-btn {
   width: 100%;
   height: 96rpx;
-  background: #4a7c59;
-  color: #fff;
-  border-radius: 48rpx;
-  font-size: 34rpx;
-  font-weight: 600;
+  background: #111111;
+  color: #FFFFFF;
   border: none;
+  border-radius: 4rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  letter-spacing: 2rpx;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .save-btn::after { border: none; }
-.save-btn.disabled { background: #93b89f; }
+.save-btn.disabled { opacity: 0.35; }

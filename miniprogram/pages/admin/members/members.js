@@ -4,6 +4,7 @@ const { requireAdmin } = require('../../../utils/auth')
 Page({
   data: {
     members: [],
+    filteredMembers: [],
     loading: true,
     keyword: '',
   },
@@ -26,6 +27,7 @@ Page({
         .orderBy('memberNo', 'asc')
         .get()
       this.setData({ members: res.data, loading: false })
+      this._applyFilter()
     } catch (err) {
       console.error('加载会员失败:', err)
       wx.showToast({ title: '加载失败', icon: 'none' })
@@ -35,17 +37,21 @@ Page({
 
   // 搜索过滤（本地过滤）
   onSearchInput(e) {
-    this.setData({ keyword: e.detail.value })
+    this.setData({ keyword: e.detail.value }, () => this._applyFilter())
   },
 
-  get filteredMembers() {
+  _applyFilter() {
     const kw = this.data.keyword.trim().toLowerCase()
-    if (!kw) return this.data.members
-    return this.data.members.filter(m =>
+    if (!kw) {
+      this.setData({ filteredMembers: this.data.members })
+      return
+    }
+    const filtered = this.data.members.filter(m =>
       m.name.toLowerCase().includes(kw) ||
       m.memberNo.toLowerCase().includes(kw) ||
       (m.phone && m.phone.includes(kw))
     )
+    this.setData({ filteredMembers: filtered })
   },
 
   // 前往新增会员

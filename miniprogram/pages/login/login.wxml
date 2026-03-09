@@ -1,39 +1,29 @@
 <!-- pages/login/login.wxml -->
 <view class="login-page">
 
-  <!-- 顶部装饰区 -->
-  <view class="top-decor">
-    <view class="circle-bg circle-1"></view>
-    <view class="circle-bg circle-2"></view>
-  </view>
-
-  <!-- Logo 区域 -->
-  <view class="logo-area">
-    <view class="logo-circle">
-      <text class="logo-char">禅</text>
+  <!-- 品牌区 -->
+  <view class="brand-area">
+    <view class="brand-mark">
+      <text class="brand-char">禅</text>
     </view>
-    <text class="app-name">禅流中医推拿</text>
-    <text class="app-slogan">专业推拿 · 调理身心</text>
+    <text class="brand-name">禅流中医推拿</text>
+    <text class="brand-tagline">专业推拿 · 调理身心</text>
   </view>
 
-  <!-- 登录卡片 -->
-  <view class="login-card">
-    <text class="card-title">欢迎使用</text>
-    <text class="card-desc">请使用微信账号登录以继续</text>
+  <!-- 登录区 -->
+  <view class="login-section">
+    <text class="login-heading">登录</text>
+    <text class="login-sub">使用微信账号继续</text>
 
     <button
-      class="btn-wechat {{loading ? 'disabled' : ''}}"
+      class="btn-login {{loading ? 'loading' : ''}}"
       bindtap="handleLogin"
       disabled="{{loading}}"
     >
-      <text class="btn-icon">微信</text>
-      <text>{{loading ? '登录中...' : '微信一键登录'}}</text>
+      {{loading ? '登录中...' : '微信一键登录'}}
     </button>
-  </view>
 
-  <!-- 底部说明 -->
-  <view class="footer-tip">
-    <text>仅开放给授权用户使用</text>
+    <text class="login-note">仅向授权用户开放</text>
   </view>
 
 </view>

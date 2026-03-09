@@ -30,6 +30,7 @@ exports.main = async (event, context) => {
 
     const now = db.serverDate()
     const newUser = {
+      _openid: OPENID,   // 云函数调用 add() 不会自动注入 _openid，必须手动写入
       memberNo,
       nickname: '新用户',
       notes: '',

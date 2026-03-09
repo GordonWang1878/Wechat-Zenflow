@@ -1,84 +1,70 @@
 <!-- pages/home/home.wxml -->
 <view class="home-page">
 
-  <!-- 顶部用户栏 -->
-  <view class="top-bar">
-    <view class="user-info">
-      <text class="greeting">你好，{{userInfo.nickname || '用户'}}</text>
-      <view class="role-badge {{isAdmin ? 'admin' : 'guest'}}">
+  <!-- 顶部栏 -->
+  <view class="page-header">
+    <view class="header-left">
+      <text class="user-name">{{userInfo.nickname || '用户'}}</text>
+      <view class="role-tag {{isAdmin ? 'tag-admin' : 'tag-guest'}}">
         <text>{{isAdmin ? '管理员' : '访客'}}</text>
       </view>
     </view>
-    <view class="logout-btn" bindtap="handleLogout">
-      <text>退出</text>
-    </view>
+    <text class="logout-link" bindtap="handleLogout">退出</text>
   </view>
 
-  <!-- 加载中 -->
-  <view wx:if="{{loading}}" class="loading-wrap">
-    <text>加载中...</text>
-  </view>
+  <!-- Loading -->
+  <view wx:if="{{loading}}" class="loading-wrap"><text>···</text></view>
 
   <block wx:else>
-    <!-- Banner -->
-    <view class="banner">
-      <text class="banner-title">{{content.title}}</text>
-      <text class="banner-subtitle">{{content.subtitle}}</text>
+
+    <!-- 工作室名称区 -->
+    <view class="studio-hero">
+      <text class="studio-name">{{content.title}}</text>
+      <text class="studio-sub">{{content.subtitle}}</text>
     </view>
 
-    <!-- 工作室介绍 -->
-    <view class="section-card" wx:if="{{content.description}}">
-      <text class="section-title">工作室介绍</text>
-      <text class="section-body">{{content.description}}</text>
+    <!-- 介绍 -->
+    <view class="content-block" wx:if="{{content.description}}">
+      <text class="block-label">介绍</text>
+      <text class="block-body">{{content.description}}</text>
     </view>
 
     <!-- 服务项目 -->
-    <view class="section-card" wx:if="{{content.services && content.services.length > 0}}">
-      <text class="section-title">服务项目</text>
+    <view class="content-block" wx:if="{{content.services && content.services.length > 0}}">
+      <text class="block-label">服务</text>
       <view class="service-list">
-        <view
-          class="service-row"
-          wx:for="{{content.services}}"
-          wx:key="index"
-        >
-          <text class="service-name">{{item.name}}</text>
-          <text class="service-price">¥{{item.price}}</text>
+        <view class="service-row" wx:for="{{content.services}}" wx:key="index">
+          <text class="svc-name">{{item.name}}</text>
+          <text class="svc-price">¥ {{item.price}}</text>
         </view>
       </view>
     </view>
 
     <!-- 联系方式 -->
-    <view class="section-card" wx:if="{{content.contact || content.address}}">
-      <text class="section-title">联系我们</text>
-      <view class="contact-row" wx:if="{{content.contact}}">
-        <text class="contact-label">电话</text>
-        <text class="contact-val">{{content.contact}}</text>
+    <view class="content-block" wx:if="{{content.contact || content.address}}">
+      <text class="block-label">联系</text>
+      <view class="info-row" wx:if="{{content.contact}}">
+        <text class="info-key">电话</text>
+        <text class="info-val">{{content.contact}}</text>
       </view>
-      <view class="contact-row" wx:if="{{content.address}}">
-        <text class="contact-label">地址</text>
-        <text class="contact-val">{{content.address}}</text>
+      <view class="info-row" wx:if="{{content.address}}">
+        <text class="info-key">地址</text>
+        <text class="info-val">{{content.address}}</text>
       </view>
     </view>
 
-    <!-- 管理面板（仅管理员可见） -->
-    <view class="section-card admin-panel" wx:if="{{isAdmin}}">
-      <text class="section-title">管理功能</text>
-      <view class="admin-grid">
-
-        <view class="admin-tile" bindtap="goToMembers">
-          <view class="tile-icon icon-members">
-            <text>会</text>
-          </view>
-          <text class="tile-label">会员管理</text>
+    <!-- 管理入口（仅管理员可见） -->
+    <view class="content-block admin-block" wx:if="{{isAdmin}}">
+      <text class="block-label">管理</text>
+      <view class="nav-list">
+        <view class="nav-row" bindtap="goToMembers">
+          <text class="nav-label">会员管理</text>
+          <text class="nav-arrow">›</text>
         </view>
-
-        <view class="admin-tile" bindtap="goToEditHome">
-          <view class="tile-icon icon-edit">
-            <text>编</text>
-          </view>
-          <text class="tile-label">编辑主页</text>
+        <view class="nav-row" bindtap="goToEditHome">
+          <text class="nav-label">编辑主页</text>
+          <text class="nav-arrow">›</text>
         </view>
-
       </view>
     </view>
 

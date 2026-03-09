@@ -10,10 +10,10 @@
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#4a7c59",
-    "navigationBarTitleText": "禅流中医推拿",
+    "navigationBarBackgroundColor": "#111111",
+    "navigationBarTitleText": "禅流",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#f5f5f0"
+    "backgroundColor": "#F5F5F2"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2",

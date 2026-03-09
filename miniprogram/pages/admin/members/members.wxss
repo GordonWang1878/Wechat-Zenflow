@@ -1,6 +1,6 @@
 /* pages/admin/members/members.wxss */
 .members-page {
-  background: #f5f5f0;
+  background: #F5F5F2;
   min-height: 100vh;
   padding-bottom: 60rpx;
 }
@@ -9,29 +9,32 @@
 .toolbar {
   display: flex;
   align-items: center;
-  padding: 20rpx 24rpx;
-  gap: 16rpx;
-  background: #fff;
-  border-bottom: 1rpx solid #eee;
+  padding: 20rpx 40rpx;
+  gap: 20rpx;
+  background: #FFFFFF;
+  border-bottom: 1rpx solid #E0E0DC;
 }
+
 .search-box {
   flex: 1;
   display: flex;
   align-items: center;
-  background: #f5f5f0;
-  border-radius: 40rpx;
-  padding: 0 24rpx;
-  height: 72rpx;
+  gap: 12rpx;
+  border-bottom: 1rpx solid #E0E0DC;
+  padding-bottom: 8rpx;
 }
-.search-icon { font-size: 24rpx; color: #aaa; margin-right: 12rpx; }
-.search-input { flex: 1; font-size: 28rpx; color: #333; }
+.search-icon { font-size: 22rpx; color: #CCCCCC; letter-spacing: 1rpx; }
+.search-input { flex: 1; font-size: 28rpx; color: #111111; height: 56rpx; }
+
 .add-btn {
-  background: #4a7c59;
-  color: #fff;
-  padding: 16rpx 28rpx;
-  border-radius: 40rpx;
-  font-size: 28rpx;
+  background: #111111;
+  color: #FFFFFF;
+  padding: 14rpx 28rpx;
+  border-radius: 4rpx;
+  font-size: 26rpx;
+  font-weight: 600;
   white-space: nowrap;
+  letter-spacing: 1rpx;
 }
 
 /* Loading / Empty */
@@ -39,75 +42,79 @@
   display: flex;
   justify-content: center;
   padding: 100rpx 0;
-  color: #999;
+  color: #CCCCCC;
+  font-size: 40rpx;
+  letter-spacing: 8rpx;
 }
 .empty-state {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 120rpx 0;
-  color: #bbb;
+  color: #CCCCCC;
 }
-.empty-icon { font-size: 100rpx; }
-.empty-text { font-size: 28rpx; margin-top: 20rpx; }
+.empty-icon { font-size: 72rpx; margin-bottom: 20rpx; }
+.empty-text { font-size: 26rpx; letter-spacing: 1rpx; }
 
-/* 会员卡片 */
-.member-list { padding: 16rpx 24rpx; }
+/* 会员列表 */
+.member-list {
+  background: #FFFFFF;
+  margin-top: 24rpx;
+  border-top: 1rpx solid #E0E0DC;
+  border-bottom: 1rpx solid #E0E0DC;
+}
+
 .member-card {
-  background: #fff;
-  border-radius: 16rpx;
-  margin-bottom: 16rpx;
-  overflow: hidden;
   display: flex;
   align-items: center;
-  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+  border-bottom: 1rpx solid #F0F0EC;
 }
+.member-card:last-child { border-bottom: none; }
+
 .member-main {
   flex: 1;
   display: flex;
   align-items: center;
-  padding: 24rpx;
-  gap: 20rpx;
+  padding: 28rpx 40rpx;
+  gap: 24rpx;
 }
+
 .member-avatar {
-  width: 80rpx;
-  height: 80rpx;
+  width: 72rpx;
+  height: 72rpx;
   border-radius: 50%;
-  background: #4a7c59;
+  background: #111111;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
-.member-avatar text {
-  font-size: 36rpx;
-  color: #fff;
-  font-weight: 700;
-}
+.member-avatar text { font-size: 30rpx; color: #FFFFFF; font-weight: 700; }
+
 .member-info { flex: 1; }
 .member-name-row {
   display: flex;
   align-items: baseline;
-  gap: 12rpx;
+  gap: 14rpx;
   margin-bottom: 6rpx;
 }
-.member-name { font-size: 32rpx; font-weight: 600; color: #1a1a1a; }
-.member-no { font-size: 22rpx; color: #999; }
-.member-phone { font-size: 26rpx; color: #777; }
+.member-name { font-size: 30rpx; font-weight: 600; color: #111111; }
+.member-no { font-size: 20rpx; color: #BBBBBB; letter-spacing: 1rpx; }
+.member-phone { font-size: 24rpx; color: #888888; }
+
 .member-balance { text-align: right; flex-shrink: 0; }
-.balance-amount { display: block; font-size: 34rpx; font-weight: 700; color: #4a7c59; }
-.balance-label { display: block; font-size: 22rpx; color: #aaa; margin-top: 4rpx; }
+.balance-amount { display: block; font-size: 32rpx; font-weight: 700; color: #2E6640; }
+.balance-label { display: block; font-size: 20rpx; color: #BBBBBB; margin-top: 4rpx; letter-spacing: 1rpx; }
 
 /* 删除按钮 */
 .delete-btn {
-  background: #ffeaea;
-  color: #e53935;
-  font-size: 26rpx;
-  padding: 0 28rpx;
+  padding: 0 32rpx;
   height: 100%;
+  min-height: 128rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 128rpx;
+  border-left: 1rpx solid #F0F0EC;
 }
-.delete-btn:active { background: #ffcdd2; }
+.delete-btn text { font-size: 24rpx; color: #C0392B; letter-spacing: 1rpx; }
+.delete-btn:active { background: #FFF5F5; }
