@@ -1,0 +1,113 @@
+/* pages/admin/members/members.wxss */
+.members-page {
+  background: #f5f5f0;
+  min-height: 100vh;
+  padding-bottom: 60rpx;
+}
+
+/* 工具栏 */
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 24rpx;
+  gap: 16rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+.search-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #f5f5f0;
+  border-radius: 40rpx;
+  padding: 0 24rpx;
+  height: 72rpx;
+}
+.search-icon { font-size: 24rpx; color: #aaa; margin-right: 12rpx; }
+.search-input { flex: 1; font-size: 28rpx; color: #333; }
+.add-btn {
+  background: #4a7c59;
+  color: #fff;
+  padding: 16rpx 28rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  white-space: nowrap;
+}
+
+/* Loading / Empty */
+.loading-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 100rpx 0;
+  color: #999;
+}
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 120rpx 0;
+  color: #bbb;
+}
+.empty-icon { font-size: 100rpx; }
+.empty-text { font-size: 28rpx; margin-top: 20rpx; }
+
+/* 会员卡片 */
+.member-list { padding: 16rpx 24rpx; }
+.member-card {
+  background: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+}
+.member-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  gap: 20rpx;
+}
+.member-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #4a7c59;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.member-avatar text {
+  font-size: 36rpx;
+  color: #fff;
+  font-weight: 700;
+}
+.member-info { flex: 1; }
+.member-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12rpx;
+  margin-bottom: 6rpx;
+}
+.member-name { font-size: 32rpx; font-weight: 600; color: #1a1a1a; }
+.member-no { font-size: 22rpx; color: #999; }
+.member-phone { font-size: 26rpx; color: #777; }
+.member-balance { text-align: right; flex-shrink: 0; }
+.balance-amount { display: block; font-size: 34rpx; font-weight: 700; color: #4a7c59; }
+.balance-label { display: block; font-size: 22rpx; color: #aaa; margin-top: 4rpx; }
+
+/* 删除按钮 */
+.delete-btn {
+  background: #ffeaea;
+  color: #e53935;
+  font-size: 26rpx;
+  padding: 0 28rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 128rpx;
+}
+.delete-btn:active { background: #ffcdd2; }

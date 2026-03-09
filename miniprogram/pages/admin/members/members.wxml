@@ -1,0 +1,69 @@
+<!-- pages/admin/members/members.wxml -->
+<view class="members-page">
+
+  <!-- 搜索栏 + 新增按钮 -->
+  <view class="toolbar">
+    <view class="search-box">
+      <text class="search-icon">搜</text>
+      <input
+        class="search-input"
+        placeholder="姓名 / 编号 / 手机号"
+        value="{{keyword}}"
+        bindinput="onSearchInput"
+      />
+    </view>
+    <view class="add-btn" bindtap="goToAdd">
+      <text>+ 新增</text>
+    </view>
+  </view>
+
+  <!-- 加载中 -->
+  <view wx:if="{{loading}}" class="loading-wrap">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:elif="{{members.length === 0}}" class="empty-state">
+    <text class="empty-icon">👤</text>
+    <text class="empty-text">暂无会员，点击右上角新增</text>
+  </view>
+
+  <!-- 会员列表 -->
+  <view wx:else class="member-list">
+    <view
+      class="member-card"
+      wx:for="{{members}}"
+      wx:key="_id"
+      wx:if="{{!keyword || item.name.includes(keyword) || item.memberNo.includes(keyword) || (item.phone && item.phone.includes(keyword))}}"
+    >
+      <!-- 左侧点击跳转详情 -->
+      <view class="member-main" bindtap="goToDetail" data-id="{{item._id}}">
+        <view class="member-avatar">
+          <text>{{item.name ? item.name[0] : '?'}}</text>
+        </view>
+        <view class="member-info">
+          <view class="member-name-row">
+            <text class="member-name">{{item.name}}</text>
+            <text class="member-no">{{item.memberNo}}</text>
+          </view>
+          <text class="member-phone" wx:if="{{item.phone}}">{{item.phone}}</text>
+        </view>
+        <view class="member-balance">
+          <text class="balance-amount">¥{{item.balance}}</text>
+          <text class="balance-label">余额</text>
+        </view>
+      </view>
+
+      <!-- 删除按钮 -->
+      <view
+        class="delete-btn"
+        catchtap="deleteMember"
+        data-id="{{item._id}}"
+        data-name="{{item.name}}"
+      >
+        <text>删除</text>
+      </view>
+    </view>
+  </view>
+
+</view>

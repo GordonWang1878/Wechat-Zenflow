@@ -1,0 +1,136 @@
+<!-- pages/admin/edit-home/edit-home.wxml -->
+<view class="edit-page">
+
+  <view wx:if="{{loading}}" class="loading-wrap"><text>加载中...</text></view>
+
+  <block wx:else>
+
+    <!-- 基本信息 -->
+    <view class="section-card">
+      <text class="section-label">基本信息</text>
+
+      <view class="form-group">
+        <text class="form-label">主页标题 <text class="required">*</text></text>
+        <input
+          class="form-input"
+          placeholder="例：禅流中医推拿"
+          value="{{form.title}}"
+          bindinput="onInput"
+          data-field="title"
+          maxlength="30"
+        />
+      </view>
+
+      <view class="form-group">
+        <text class="form-label">副标题</text>
+        <input
+          class="form-input"
+          placeholder="例：专业推拿 · 调理身心"
+          value="{{form.subtitle}}"
+          bindinput="onInput"
+          data-field="subtitle"
+          maxlength="40"
+        />
+      </view>
+
+      <view class="form-group">
+        <text class="form-label">工作室介绍</text>
+        <textarea
+          class="form-textarea"
+          placeholder="介绍你的工作室..."
+          value="{{form.description}}"
+          bindinput="onInput"
+          data-field="description"
+          maxlength="500"
+          auto-height
+        />
+      </view>
+    </view>
+
+    <!-- 服务项目 -->
+    <view class="section-card">
+      <text class="section-label">服务项目</text>
+
+      <!-- 已有服务列表 -->
+      <view class="service-list" wx:if="{{form.services && form.services.length > 0}}">
+        <view
+          class="service-item"
+          wx:for="{{form.services}}"
+          wx:key="index"
+        >
+          <text class="svc-name">{{item.name}}</text>
+          <text class="svc-price">¥{{item.price}}</text>
+          <view class="svc-del" bindtap="removeService" data-index="{{index}}">
+            <text>删除</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 新增服务 -->
+      <view class="add-service-row">
+        <input
+          class="svc-input"
+          placeholder="服务名称"
+          value="{{newServiceName}}"
+          bindinput="onNewServiceInput"
+          data-field="newServiceName"
+        />
+        <input
+          class="svc-price-input"
+          placeholder="价格"
+          type="digit"
+          value="{{newServicePrice}}"
+          bindinput="onNewServiceInput"
+          data-field="newServicePrice"
+        />
+        <view class="svc-add-btn" bindtap="addService">
+          <text>添加</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 联系方式 -->
+    <view class="section-card">
+      <text class="section-label">联系方式</text>
+
+      <view class="form-group">
+        <text class="form-label">联系电话</text>
+        <input
+          class="form-input"
+          placeholder="例：138-0000-0000"
+          value="{{form.contact}}"
+          bindinput="onInput"
+          data-field="contact"
+          type="number"
+          maxlength="20"
+        />
+      </view>
+
+      <view class="form-group">
+        <text class="form-label">地址</text>
+        <textarea
+          class="form-textarea"
+          placeholder="工作室详细地址"
+          value="{{form.address}}"
+          bindinput="onInput"
+          data-field="address"
+          maxlength="100"
+          auto-height
+        />
+      </view>
+    </view>
+
+  </block>
+
+  <!-- 保存按钮 -->
+  <view class="submit-area">
+    <button
+      class="save-btn {{submitting ? 'disabled' : ''}}"
+      bindtap="handleSubmit"
+      disabled="{{submitting}}"
+    >
+      {{submitting ? '保存中...' : '保存主页'}}
+    </button>
+  </view>
+
+</view>

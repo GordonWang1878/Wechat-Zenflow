@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/home/home",
+    "pages/admin/members/members",
+    "pages/admin/member-form/member-form",
+    "pages/admin/member-detail/member-detail",
+    "pages/admin/transaction/transaction",
+    "pages/admin/edit-home/edit-home"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#4a7c59",
+    "navigationBarTitleText": "禅流中医推拿",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f5f0"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "cloud": true
+}

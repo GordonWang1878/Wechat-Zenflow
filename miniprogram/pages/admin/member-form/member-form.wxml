@@ -1,0 +1,87 @@
+<!-- pages/admin/member-form/member-form.wxml -->
+<view class="form-page">
+  <view class="form-card">
+
+    <!-- 姓名 -->
+    <view class="form-group">
+      <text class="form-label">姓名<text class="required"> *</text></text>
+      <input
+        class="form-input"
+        placeholder="请输入姓名"
+        value="{{form.name}}"
+        bindinput="onInput"
+        data-field="name"
+        maxlength="20"
+      />
+    </view>
+
+    <!-- 手机号 -->
+    <view class="form-group">
+      <text class="form-label">手机号</text>
+      <input
+        class="form-input"
+        placeholder="请输入手机号（可选）"
+        value="{{form.phone}}"
+        bindinput="onInput"
+        data-field="phone"
+        type="number"
+        maxlength="11"
+      />
+    </view>
+
+    <!-- 性别 -->
+    <view class="form-group">
+      <text class="form-label">性别</text>
+      <picker
+        range="{{genderOptions}}"
+        value="{{genderIndex}}"
+        bindchange="onGenderChange"
+      >
+        <view class="picker-display">
+          <text>{{genderOptions[genderIndex]}}</text>
+          <text class="picker-arrow">▼</text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 初始余额（仅新增时显示） -->
+    <view class="form-group" wx:if="{{!isEdit}}">
+      <text class="form-label">初始余额（元）</text>
+      <input
+        class="form-input"
+        placeholder="默认为 0"
+        value="{{form.balance}}"
+        bindinput="onInput"
+        data-field="balance"
+        type="digit"
+      />
+    </view>
+
+    <!-- 备注 -->
+    <view class="form-group">
+      <text class="form-label">备注</text>
+      <textarea
+        class="form-textarea"
+        placeholder="备注信息（可选）"
+        value="{{form.notes}}"
+        bindinput="onInput"
+        data-field="notes"
+        maxlength="200"
+        auto-height
+      />
+    </view>
+
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="submit-area">
+    <button
+      class="btn-primary {{submitting ? 'disabled' : ''}}"
+      bindtap="handleSubmit"
+      disabled="{{submitting}}"
+    >
+      {{submitting ? '提交中...' : (isEdit ? '保存修改' : '创建会员')}}
+    </button>
+  </view>
+
+</view>

@@ -1,0 +1,76 @@
+<!-- pages/admin/transaction/transaction.wxml -->
+<view class="tx-page">
+
+  <!-- 会员信息 -->
+  <view class="member-card" wx:if="{{member}}">
+    <view class="member-avatar">
+      <text>{{member.name ? member.name[0] : '?'}}</text>
+    </view>
+    <view class="member-meta">
+      <text class="member-name">{{member.name}}</text>
+      <text class="member-no">{{member.memberNo}}</text>
+    </view>
+    <view class="balance-info">
+      <text class="balance-label">当前余额</text>
+      <text class="balance-amount">¥{{member.balance}}</text>
+    </view>
+  </view>
+
+  <!-- 操作类型标识 -->
+  <view class="type-banner {{type === 'recharge' ? 'banner-recharge' : 'banner-consume'}}">
+    <text>{{type === 'recharge' ? '充值' : '消费'}}</text>
+  </view>
+
+  <!-- 表单 -->
+  <view class="form-card">
+
+    <!-- 金额输入 -->
+    <view class="amount-area">
+      <text class="currency-sign">¥</text>
+      <input
+        class="amount-input"
+        type="digit"
+        placeholder="0.00"
+        value="{{amount}}"
+        bindinput="onAmountInput"
+        focus="true"
+      />
+    </view>
+
+    <!-- 交易后余额预览 -->
+    <view class="projected-row" wx:if="{{projectedBalance !== null}}">
+      <text class="projected-label">交易后余额：</text>
+      <text
+        class="projected-value {{projectedBalance < 0 ? 'negative' : ''}}"
+      >¥{{projectedBalance}}</text>
+    </view>
+
+    <view class="divider"></view>
+
+    <!-- 备注 -->
+    <view class="form-group">
+      <text class="form-label">备注（可选）</text>
+      <textarea
+        class="form-textarea"
+        placeholder="如：购买服务套餐、推拿10次..."
+        value="{{notes}}"
+        bindinput="onNotesInput"
+        maxlength="100"
+        auto-height
+      />
+    </view>
+
+  </view>
+
+  <!-- 提交 -->
+  <view class="submit-area">
+    <button
+      class="submit-btn {{type}} {{submitting ? 'disabled' : ''}}"
+      bindtap="handleSubmit"
+      disabled="{{submitting}}"
+    >
+      {{submitting ? '处理中...' : (type === 'recharge' ? '确认充值' : '确认消费')}}
+    </button>
+  </view>
+
+</view>

@@ -1,0 +1,124 @@
+/* pages/login/login.wxss */
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #4a7c59 0%, #2d5a3d 55%, #1e3d28 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 48rpx;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景装饰圆 */
+.top-decor { position: absolute; top: 0; left: 0; right: 0; }
+.circle-bg {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+}
+.circle-1 { width: 500rpx; height: 500rpx; top: -200rpx; right: -100rpx; }
+.circle-2 { width: 300rpx; height: 300rpx; top: 100rpx; left: -80rpx; }
+
+/* Logo 区域 */
+.logo-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.logo-circle {
+  width: 160rpx;
+  height: 160rpx;
+  background: rgba(255, 255, 255, 0.15);
+  border: 4rpx solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 36rpx;
+}
+.logo-char {
+  font-size: 80rpx;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.app-name {
+  font-size: 48rpx;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 16rpx;
+}
+.app-slogan {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* 登录卡片 */
+.login-card {
+  width: 100%;
+  background: #fff;
+  border-radius: 28rpx;
+  padding: 52rpx 44rpx;
+  margin-bottom: 40rpx;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 8rpx 40rpx rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  display: block;
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12rpx;
+}
+.card-desc {
+  display: block;
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 52rpx;
+}
+
+.btn-wechat {
+  width: 100%;
+  height: 96rpx;
+  background: #4a7c59;
+  color: #fff;
+  border-radius: 48rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rpx;
+}
+.btn-wechat::after { border: none; }
+.btn-wechat.disabled { background: #93b89f; }
+
+.btn-icon {
+  font-size: 28rpx;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 4rpx 14rpx;
+  border-radius: 8rpx;
+}
+
+/* 底部提示 */
+.footer-tip {
+  padding-bottom: 80rpx;
+  position: relative;
+  z-index: 1;
+}
+.footer-tip text {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.4);
+}

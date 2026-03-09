@@ -1,0 +1,39 @@
+<!-- pages/login/login.wxml -->
+<view class="login-page">
+
+  <!-- 顶部装饰区 -->
+  <view class="top-decor">
+    <view class="circle-bg circle-1"></view>
+    <view class="circle-bg circle-2"></view>
+  </view>
+
+  <!-- Logo 区域 -->
+  <view class="logo-area">
+    <view class="logo-circle">
+      <text class="logo-char">禅</text>
+    </view>
+    <text class="app-name">禅流中医推拿</text>
+    <text class="app-slogan">专业推拿 · 调理身心</text>
+  </view>
+
+  <!-- 登录卡片 -->
+  <view class="login-card">
+    <text class="card-title">欢迎使用</text>
+    <text class="card-desc">请使用微信账号登录以继续</text>
+
+    <button
+      class="btn-wechat {{loading ? 'disabled' : ''}}"
+      bindtap="handleLogin"
+      disabled="{{loading}}"
+    >
+      <text class="btn-icon">微信</text>
+      <text>{{loading ? '登录中...' : '微信一键登录'}}</text>
+    </button>
+  </view>
+
+  <!-- 底部说明 -->
+  <view class="footer-tip">
+    <text>仅开放给授权用户使用</text>
+  </view>
+
+</view>

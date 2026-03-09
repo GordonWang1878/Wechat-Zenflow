@@ -1,0 +1,130 @@
+/* pages/admin/transaction/transaction.wxss */
+.tx-page {
+  background: #f5f5f0;
+  min-height: 100vh;
+  padding: 24rpx;
+  box-sizing: border-box;
+  padding-bottom: 160rpx;
+}
+
+/* 会员信息卡片 */
+.member-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+}
+.member-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #4a7c59;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.member-avatar text { font-size: 36rpx; color: #fff; font-weight: 700; }
+.member-meta { flex: 1; }
+.member-name { display: block; font-size: 30rpx; font-weight: 600; color: #1a1a1a; }
+.member-no { display: block; font-size: 22rpx; color: #aaa; margin-top: 4rpx; }
+.balance-info { text-align: right; }
+.balance-label { display: block; font-size: 22rpx; color: #aaa; }
+.balance-amount { display: block; font-size: 36rpx; font-weight: 700; color: #4a7c59; }
+
+/* 类型标识 */
+.type-banner {
+  text-align: center;
+  padding: 14rpx;
+  border-radius: 12rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  margin-bottom: 20rpx;
+}
+.banner-recharge { background: #e8f5e9; color: #2e7d32; }
+.banner-consume { background: #fff3e0; color: #e65100; }
+
+/* 表单卡片 */
+.form-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 36rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.05);
+}
+
+.amount-area {
+  display: flex;
+  align-items: center;
+  border-bottom: 3rpx solid #eee;
+  padding-bottom: 24rpx;
+  margin-bottom: 20rpx;
+}
+.currency-sign {
+  font-size: 52rpx;
+  color: #999;
+  margin-right: 12rpx;
+  font-weight: 300;
+}
+.amount-input {
+  flex: 1;
+  font-size: 72rpx;
+  font-weight: 700;
+  color: #1a1a1a;
+  height: 100rpx;
+}
+
+.projected-row {
+  display: flex;
+  align-items: center;
+  padding: 12rpx 0;
+  margin-bottom: 8rpx;
+}
+.projected-label { font-size: 26rpx; color: #999; }
+.projected-value { font-size: 30rpx; font-weight: 600; color: #4a7c59; margin-left: 8rpx; }
+.projected-value.negative { color: #e53935; }
+
+.divider { height: 1rpx; background: #f0ede5; margin: 20rpx 0; }
+
+.form-group { margin-top: 12rpx; }
+.form-label { display: block; font-size: 26rpx; color: #666; margin-bottom: 12rpx; }
+.form-textarea {
+  width: 100%;
+  min-height: 120rpx;
+  background: #f8f8f5;
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  font-size: 28rpx;
+  color: #333;
+  box-sizing: border-box;
+}
+
+/* 提交区域 */
+.submit-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24rpx;
+  background: #fff;
+  border-top: 1rpx solid #eee;
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
+}
+.submit-btn {
+  width: 100%;
+  height: 96rpx;
+  border-radius: 48rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.submit-btn::after { border: none; }
+.submit-btn.recharge { background: #4a7c59; color: #fff; }
+.submit-btn.consume { background: #c8956c; color: #fff; }
+.submit-btn.disabled { opacity: 0.6; }

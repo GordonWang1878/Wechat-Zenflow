@@ -1,0 +1,87 @@
+<!-- pages/home/home.wxml -->
+<view class="home-page">
+
+  <!-- 顶部用户栏 -->
+  <view class="top-bar">
+    <view class="user-info">
+      <text class="greeting">你好，{{userInfo.nickname || '用户'}}</text>
+      <view class="role-badge {{isAdmin ? 'admin' : 'guest'}}">
+        <text>{{isAdmin ? '管理员' : '访客'}}</text>
+      </view>
+    </view>
+    <view class="logout-btn" bindtap="handleLogout">
+      <text>退出</text>
+    </view>
+  </view>
+
+  <!-- 加载中 -->
+  <view wx:if="{{loading}}" class="loading-wrap">
+    <text>加载中...</text>
+  </view>
+
+  <block wx:else>
+    <!-- Banner -->
+    <view class="banner">
+      <text class="banner-title">{{content.title}}</text>
+      <text class="banner-subtitle">{{content.subtitle}}</text>
+    </view>
+
+    <!-- 工作室介绍 -->
+    <view class="section-card" wx:if="{{content.description}}">
+      <text class="section-title">工作室介绍</text>
+      <text class="section-body">{{content.description}}</text>
+    </view>
+
+    <!-- 服务项目 -->
+    <view class="section-card" wx:if="{{content.services && content.services.length > 0}}">
+      <text class="section-title">服务项目</text>
+      <view class="service-list">
+        <view
+          class="service-row"
+          wx:for="{{content.services}}"
+          wx:key="index"
+        >
+          <text class="service-name">{{item.name}}</text>
+          <text class="service-price">¥{{item.price}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 联系方式 -->
+    <view class="section-card" wx:if="{{content.contact || content.address}}">
+      <text class="section-title">联系我们</text>
+      <view class="contact-row" wx:if="{{content.contact}}">
+        <text class="contact-label">电话</text>
+        <text class="contact-val">{{content.contact}}</text>
+      </view>
+      <view class="contact-row" wx:if="{{content.address}}">
+        <text class="contact-label">地址</text>
+        <text class="contact-val">{{content.address}}</text>
+      </view>
+    </view>
+
+    <!-- 管理面板（仅管理员可见） -->
+    <view class="section-card admin-panel" wx:if="{{isAdmin}}">
+      <text class="section-title">管理功能</text>
+      <view class="admin-grid">
+
+        <view class="admin-tile" bindtap="goToMembers">
+          <view class="tile-icon icon-members">
+            <text>会</text>
+          </view>
+          <text class="tile-label">会员管理</text>
+        </view>
+
+        <view class="admin-tile" bindtap="goToEditHome">
+          <view class="tile-icon icon-edit">
+            <text>编</text>
+          </view>
+          <text class="tile-label">编辑主页</text>
+        </view>
+
+      </view>
+    </view>
+
+  </block>
+
+</view>
