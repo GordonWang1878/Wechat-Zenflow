@@ -12,10 +12,11 @@
 .home-studio-row { margin-bottom: 32rpx; }
 .home-studio-name {
   display: block;
-  font-size: 60rpx;
-  font-weight: 800;
+  font-family: Georgia, 'Palatino Linotype', Palatino, serif;
+  font-size: 64rpx;
+  font-weight: 700;
   color: #FFFFFF;
-  letter-spacing: -1rpx;
+  letter-spacing: 3rpx;
   line-height: 1.15;
   margin-bottom: 10rpx;
 }

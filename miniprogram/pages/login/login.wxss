@@ -15,18 +15,20 @@
   justify-content: center;
   padding: 80rpx 48rpx 64rpx;
 }
-.login-logo { font-size: 100rpx; margin-bottom: 20rpx; }
 .login-brand {
-  font-size: 80rpx;
+  font-family: Georgia, 'Palatino Linotype', Palatino, serif;
+  font-size: 88rpx;
   font-weight: 700;
   color: #FFFFFF;
-  letter-spacing: -2rpx;
+  letter-spacing: 2rpx;
   line-height: 1;
 }
 .login-tagline {
-  font-size: 28rpx;
+  font-family: Georgia, 'Palatino Linotype', Palatino, serif;
+  font-size: 26rpx;
+  font-weight: 400;
   color: rgba(255,255,255,0.6);
-  margin-top: 16rpx;
+  margin-top: 20rpx;
   letter-spacing: 3rpx;
 }
 
