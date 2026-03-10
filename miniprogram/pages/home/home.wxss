@@ -2,7 +2,7 @@
 
 /* 英雄 header */
 .home-hero {
-  background: #3A3A3A;
+  background: #3D7D52;
   border-radius: 0 0 36rpx 36rpx;
   padding: 48rpx 32rpx 48rpx;
   margin-bottom: 20rpx;
@@ -76,7 +76,7 @@
 }
 .home-svc-row:last-child { border-bottom: none; }
 .home-svc-name { font-size: 28rpx; color: #1C1B1F; }
-.home-svc-price { font-size: 28rpx; font-weight: 700; color: #2E6640; }
+.home-svc-price { font-size: 28rpx; font-weight: 700; color: #3D7D52; }
 
 /* 管理员入口 */
 .home-admin-grid {

@@ -2,7 +2,7 @@
 
 /* 余额英雄 header */
 .detail-hero {
-  background: #3A3A3A;
+  background: #3D7D52;
   border-radius: 0 0 36rpx 36rpx;
   padding: 48rpx 32rpx 56rpx;
   margin-bottom: 20rpx;
@@ -107,7 +107,7 @@
 .chip-consume { background: #FDEBD0; color: #7B3F26; }
 
 .tx-amount { font-size: 36rpx; font-weight: 700; }
-.amount-pos { color: #2E6640; }
+.amount-pos { color: #3D7D52; }
 .amount-neg { color: #B8694A; }
 
 .tx-item-bottom { display: flex; align-items: flex-end; justify-content: space-between; }

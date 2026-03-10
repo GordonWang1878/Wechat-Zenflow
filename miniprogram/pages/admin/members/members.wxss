@@ -2,7 +2,7 @@
 
 /* 英雄 header */
 .members-hero {
-  background: #3A3A3A;
+  background: #3D7D52;
   border-radius: 0 0 36rpx 36rpx;
   padding: 48rpx 32rpx 40rpx;
   margin-bottom: 20rpx;
@@ -87,7 +87,7 @@
 .member-phone { font-size: 24rpx; color: #9E9E9E; }
 
 .member-bal-box { text-align: right; flex-shrink: 0; }
-.member-bal-num { font-size: 32rpx; font-weight: 700; color: #2E6640; }
+.member-bal-num { font-size: 32rpx; font-weight: 700; color: #3D7D52; }
 
 /* Footer with delete */
 .member-item-footer {
@@ -103,7 +103,7 @@
   position: fixed;
   bottom: 48rpx;
   right: 32rpx;
-  background: #2E6640;
+  background: #3D7D52;
   border-radius: 32rpx;
   padding: 0 32rpx;
   height: 100rpx;

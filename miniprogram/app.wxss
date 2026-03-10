@@ -21,7 +21,7 @@ page {
   box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.06);
 }
 .md-card-primary {
-  background: #2E6640;
+  background: #3D7D52;
   border-radius: 0 0 36rpx 36rpx;
   padding: 48rpx 32rpx 56rpx;
   margin-bottom: 20rpx;
@@ -76,7 +76,7 @@ page {
   letter-spacing: 1rpx;
   gap: 10rpx;
 }
-.md-btn-filled { background: #2E6640; color: #FFFFFF; }
+.md-btn-filled { background: #3D7D52; color: #FFFFFF; }
 .md-btn-filled-secondary { background: #B8694A; color: #FFFFFF; }
 .md-btn-tonal { background: #D4EDDA; color: #1B4332; }
 .md-btn-tonal-secondary { background: #FDEBD0; color: #7B3F26; }
@@ -88,7 +88,7 @@ page {
   width: 112rpx;
   height: 112rpx;
   border-radius: 32rpx;
-  background: #2E6640;
+  background: #3D7D52;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,7 +135,7 @@ page {
   display: block;
   font-size: 20rpx;
   font-weight: 700;
-  color: #2E6640;
+  color: #3D7D52;
   letter-spacing: 1rpx;
   margin-bottom: 10rpx;
 }

@@ -1,7 +1,7 @@
 /* pages/profile/profile.wxss */
 
 .profile-hero {
-  background: #3A3A3A;
+  background: #3D7D52;
   border-radius: 0 0 36rpx 36rpx;
   padding: 48rpx 32rpx 56rpx;
   margin-bottom: 20rpx;
