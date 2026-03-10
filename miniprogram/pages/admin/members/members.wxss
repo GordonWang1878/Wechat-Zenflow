@@ -2,7 +2,7 @@
 
 /* 英雄 header */
 .members-hero {
-  background: #2E6640;
+  background: #3A3A3A;
   border-radius: 0 0 36rpx 36rpx;
   padding: 48rpx 32rpx 40rpx;
   margin-bottom: 20rpx;

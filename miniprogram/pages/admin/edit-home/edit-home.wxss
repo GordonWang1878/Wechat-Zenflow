@@ -2,7 +2,7 @@
 
 /* 标题 hero（复用 member-form 的样式） */
 .form-hero {
-  background: #2E6640;
+  background: #3A3A3A;
   border-radius: 0 0 36rpx 36rpx;
   padding: 48rpx 32rpx 56rpx;
   margin-bottom: 20rpx;

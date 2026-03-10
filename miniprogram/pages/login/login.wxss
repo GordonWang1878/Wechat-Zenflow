@@ -1,7 +1,7 @@
 /* pages/login/login.wxss */
 .login-screen {
   min-height: 100vh;
-  background: #2E6640;
+  background: #3A3A3A;
   display: flex;
   flex-direction: column;
 }
