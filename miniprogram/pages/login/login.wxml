@@ -3,8 +3,8 @@
 
   <!-- 绿色英雄区 -->
   <view class="login-hero">
-    <text class="login-brand">Zenflow</text>
-    <text class="login-tagline">Traditional Chinese Massage</text>
+    <text class="login-brand">禅流</text>
+    <text class="login-tagline">中医推拿工作室</text>
   </view>
 
   <!-- 白色底部 sheet -->

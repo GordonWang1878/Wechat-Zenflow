@@ -16,20 +16,17 @@
   padding: 80rpx 48rpx 64rpx;
 }
 .login-brand {
-  font-family: Georgia, 'Palatino Linotype', Palatino, serif;
   font-size: 88rpx;
   font-weight: 700;
   color: #FFFFFF;
-  letter-spacing: 2rpx;
+  letter-spacing: 4rpx;
   line-height: 1;
 }
 .login-tagline {
-  font-family: Georgia, 'Palatino Linotype', Palatino, serif;
   font-size: 26rpx;
-  font-weight: 400;
   color: rgba(255,255,255,0.6);
   margin-top: 20rpx;
-  letter-spacing: 3rpx;
+  letter-spacing: 4rpx;
 }
 
 /* 底部白色 sheet */

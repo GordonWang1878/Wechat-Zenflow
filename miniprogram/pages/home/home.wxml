@@ -5,7 +5,7 @@
   <view class="home-hero">
     <!-- 品牌名称（顶部固定显示） -->
     <view class="home-studio-row">
-      <text class="home-studio-name">Zenflow</text>
+      <text class="home-studio-name">禅流</text>
       <text class="home-studio-sub">🌿 {{content.subtitle || '专业推拿 · 调理身心'}}</text>
     </view>
     <!-- 用户信息行 -->
