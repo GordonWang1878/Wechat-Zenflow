@@ -9,8 +9,11 @@
 
     <!-- 余额英雄 header -->
     <view class="detail-hero">
-      <text class="detail-hero-label">当前余额</text>
-      <text class="detail-hero-balance">¥ {{member.balance}}</text>
+      <text class="detail-hero-label">当前点数</text>
+      <view class="detail-hero-balance-row">
+        <text class="detail-hero-balance">{{member.balance}}</text>
+        <text class="detail-hero-unit">点</text>
+      </view>
       <view class="detail-hero-member">
         <view class="detail-avatar">
           <text class="detail-avatar-text">{{member.name ? member.name[0] : '?'}}</text>
@@ -93,7 +96,7 @@
             <text>{{item.type === 'recharge' ? '⬆️ 充值' : '⬇️ 消费'}}</text>
           </view>
           <text class="tx-amount {{item.type === 'recharge' ? 'amount-pos' : 'amount-neg'}}">
-            {{item.type === 'recharge' ? '+' : '−'}}{{item.amount}}
+            {{item.type === 'recharge' ? '+' : '−'}}{{item.amount}} 点
           </text>
         </view>
         <view class="tx-item-bottom">
@@ -101,7 +104,7 @@
             <text class="tx-time">🕐 {{item.timeStr}}</text>
             <text class="tx-notes" wx:if="{{item.notes}}">💬 {{item.notes}}</text>
           </view>
-          <text class="tx-after-bal">余额 ¥{{item.balanceAfter}}</text>
+          <text class="tx-after-bal">剩余 {{item.balanceAfter}} 点</text>
         </view>
       </view>
     </block>

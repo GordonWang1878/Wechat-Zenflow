@@ -10,32 +10,32 @@
       </view>
       <view>
         <text class="tx-hero-name">{{member.name}}</text>
-        <text class="tx-hero-meta">{{member.memberNo}} · 当前余额 ¥{{member.balance}}</text>
+        <text class="tx-hero-meta">{{member.memberNo}} · 当前点数 {{member.balance}} 点</text>
       </view>
     </view>
   </view>
 
-  <!-- 金额输入 -->
+  <!-- 点数输入 -->
   <view class="md-card tx-amount-card">
-    <text style="font-size:20rpx;font-weight:700;color:#9E9E9E;letter-spacing:2rpx">金额 AMOUNT</text>
+    <text style="font-size:20rpx;font-weight:700;color:#9E9E9E;letter-spacing:2rpx">点数 POINTS</text>
     <view class="tx-amount-row">
-      <text class="tx-currency">¥</text>
       <input
         class="tx-amount-input"
         type="digit"
-        placeholder="0.00"
+        placeholder="0"
         placeholder-style="color:#E0E0E0"
         value="{{amount}}"
         bindinput="onAmountInput"
         focus="true"
       />
+      <text class="tx-unit">点</text>
     </view>
     <view class="tx-projected-row" wx:if="{{projectedBalance !== null}}">
       <view class="md-divider"></view>
       <view style="display:flex;align-items:center;justify-content:space-between;margin-top:16rpx">
         <text style="font-size:24rpx;color:#9E9E9E">交易后余额</text>
         <text class="tx-projected-val {{projectedBalance < 0 ? 'projected-neg' : 'projected-pos'}}">
-          ¥ {{projectedBalance}}
+          {{projectedBalance}} 点
         </text>
       </view>
     </view>

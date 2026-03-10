@@ -9,8 +9,8 @@
         <text class="members-hero-count">👥 {{members.length}} 位会员</text>
       </view>
       <view class="members-balance-box">
-        <text class="members-balance-label">总余额</text>
-        <text class="members-balance-num">¥{{totalBalance}}</text>
+        <text class="members-balance-label">总点数</text>
+        <text class="members-balance-num">{{totalBalance}} 点</text>
       </view>
     </view>
     <view class="md-search">
@@ -62,7 +62,7 @@
           <text class="member-phone" wx:else style="color:#E0E0E0">暂无手机号</text>
         </view>
         <view class="member-bal-box">
-          <text class="member-bal-num">¥{{item.balance}}</text>
+          <text class="member-bal-num">{{item.balance}} 点</text>
         </view>
       </view>
       <view class="member-item-footer">

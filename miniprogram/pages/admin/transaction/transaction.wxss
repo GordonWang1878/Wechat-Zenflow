@@ -42,8 +42,7 @@
 
 /* 金额输入 */
 .tx-amount-card {}
-.tx-amount-row { display: flex; align-items: baseline; gap: 8rpx; margin: 16rpx 0 8rpx; }
-.tx-currency { font-size: 52rpx; color: #BDBDBD; font-weight: 300; line-height: 1; }
+.tx-amount-row { display: flex; align-items: baseline; gap: 16rpx; margin: 16rpx 0 8rpx; }
 .tx-amount-input {
   flex: 1;
   font-size: 84rpx;
@@ -53,6 +52,7 @@
   letter-spacing: -3rpx;
   background: transparent;
 }
+.tx-unit { font-size: 40rpx; font-weight: 400; color: #BDBDBD; line-height: 1; flex-shrink: 0; }
 
 .tx-projected-row { margin-top: 8rpx; }
 .tx-projected-val { font-size: 28rpx; font-weight: 700; }

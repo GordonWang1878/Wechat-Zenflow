@@ -62,11 +62,11 @@
 
     <!-- 初始余额（仅新增） -->
     <view class="md-field" wx:if="{{!isEdit}}">
-      <text class="md-field-label">💰 初始余额</text>
+      <text class="md-field-label">🎯 初始点数</text>
       <view class="md-field-container">
         <input
           class="md-field-input"
-          placeholder="默认为 0"
+          placeholder="默认为 0 点"
           placeholder-style="color:#C8C8C8"
           value="{{form.balance}}"
           bindinput="onInput"
