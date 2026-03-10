@@ -3,20 +3,20 @@
 
   <!-- 绿色英雄 header -->
   <view class="home-hero">
-    <view class="home-hero-top">
-      <view class="home-user-info">
-        <text class="home-greeting">欢迎回来 👋</text>
-        <text class="home-username">{{userInfo.nickname || '用户'}}</text>
-      </view>
-      <view class="home-actions">
-        <view class="home-role-badge {{isAdmin ? 'badge-admin' : 'badge-member'}}">
-          <text>{{isAdmin ? '👑 管理员' : '🌿 会员'}}</text>
-        </view>
-      </view>
-    </view>
+    <!-- 工作室名称（主标题） -->
     <view class="home-studio-row">
-      <text class="home-studio-name">🌿 {{content.title || '禅流中医推拿'}}</text>
-      <text class="home-studio-sub">{{content.subtitle || '专业推拿 · 调理身心'}}</text>
+      <text class="home-studio-name">{{content.title || '禅流中医推拿'}}</text>
+      <text class="home-studio-sub">🌿 {{content.subtitle || '专业推拿 · 调理身心'}}</text>
+    </view>
+    <!-- 用户信息行 -->
+    <view class="home-hero-bottom">
+      <view class="home-user-info" bindtap="goToProfile">
+        <text class="home-greeting">欢迎回来，{{userInfo.nickname || '用户'}} 👋</text>
+        <text class="home-edit-hint">点击修改昵称 ›</text>
+      </view>
+      <view class="home-role-badge {{isAdmin ? 'badge-admin' : 'badge-member'}}">
+        <text>{{isAdmin ? '👑 管理员' : '🌿 会员'}}</text>
+      </view>
     </view>
   </view>
 

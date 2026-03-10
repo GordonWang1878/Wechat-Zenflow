@@ -48,6 +48,10 @@ Page({
     }
   },
 
+  goToProfile() {
+    wx.navigateTo({ url: '/pages/profile/profile' })
+  },
+
   goToMembers() {
     wx.navigateTo({ url: '/pages/admin/members/members' })
   },
