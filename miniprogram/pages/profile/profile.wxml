@@ -4,8 +4,8 @@
   <!-- 英雄 header -->
   <view class="profile-hero">
     <text class="profile-hero-icon">{{isFirstSetup ? '👋' : '✏️'}}</text>
-    <text class="profile-hero-title">{{isFirstSetup ? '欢迎，请设置昵称' : '修改昵称'}}</text>
-    <text class="profile-hero-sub">{{isFirstSetup ? '让工作室认识您' : '更新您的显示名称'}}</text>
+    <text class="profile-hero-title">{{isFirstSetup ? '确认您的昵称' : '修改昵称'}}</text>
+    <text class="profile-hero-sub">{{isFirstSetup ? '这将作为您在本小程序的显示名称' : '更新您的显示名称'}}</text>
   </view>
 
   <!-- 昵称输入 -->
@@ -13,11 +13,10 @@
     <view class="md-field" style="margin-bottom:16rpx">
       <text class="md-field-label">👤 昵称</text>
       <view class="md-field-container">
-        <!-- type="nickname" 允许用户选用微信昵称 -->
         <input
           type="nickname"
           class="md-field-input"
-          placeholder="点击输入框可选用微信昵称"
+          placeholder="输入或选用微信昵称"
           placeholder-style="color:#C8C8C8"
           value="{{nickname}}"
           bindinput="onNicknameInput"
@@ -26,20 +25,17 @@
     </view>
     <view class="profile-tip">
       <text class="profile-tip-icon">💡</text>
-      <text class="profile-tip-text">点击输入框，键盘顶部会显示您的微信昵称供选用</text>
+      <text class="profile-tip-text">可在输入框直接修改，或点击键盘顶部快速选用微信昵称</text>
     </view>
   </view>
 
-  <!-- 按钮区 -->
+  <!-- 确认按钮 -->
   <view style="padding:8rpx 24rpx 40rpx">
     <view
       class="md-btn md-btn-filled profile-btn {{submitting ? 'disabled' : ''}}"
       bindtap="handleSave"
     >
-      <text>{{submitting ? '保存中...' : '✅ 确认'}}</text>
-    </view>
-    <view class="md-btn md-btn-outlined profile-btn" style="margin-top:16rpx" bindtap="handleSkip" wx:if="{{isFirstSetup}}">
-      <text>稍后再说</text>
+      <text>{{submitting ? '保存中...' : '✅ 确认昵称'}}</text>
     </view>
   </view>
 

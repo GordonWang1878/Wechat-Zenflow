@@ -11,12 +11,20 @@ Page({
 
   onLoad(options) {
     if (!requireLogin()) return
+
+    const isFirstSetup = options.firstSetup === '1'
+    // 优先使用登录时获取到的微信昵称（新用户首次设置）
+    const pendingNickname = app.globalData.pendingNickname || ''
     const userInfo = app.globalData.userInfo
+    const savedNickname = (userInfo && userInfo.nickname !== '新用户') ? userInfo.nickname : ''
+
     this.setData({
-      // 如果昵称是默认"新用户"，则留空让用户重新设置
-      nickname: (userInfo && userInfo.nickname !== '新用户') ? userInfo.nickname : '',
-      isFirstSetup: options.firstSetup === '1',
+      nickname: pendingNickname || savedNickname,
+      isFirstSetup,
     })
+
+    // 清除临时缓存
+    app.globalData.pendingNickname = ''
   },
 
   onNicknameInput(e) {
@@ -56,9 +64,5 @@ Page({
     } finally {
       this.setData({ submitting: false })
     }
-  },
-
-  handleSkip() {
-    wx.reLaunch({ url: '/pages/home/home' })
   },
 })
